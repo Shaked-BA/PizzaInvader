@@ -125,6 +125,7 @@ function verify() {
         return false;
     }
     if (!verifyEmail()) {
+        alert("Invalid email address.");
         return false;
     }
     if (!verifyIdenticalPasswords()) {
@@ -181,8 +182,10 @@ function verifyLastName() {
 // Verify email.
 function verifyEmail() {
     var e = document.getElementById("email").value;
-
-    return true;
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e)) {
+      return true;
+    }
+    return false;
 };
 
 // Check if the passwords are identical.
