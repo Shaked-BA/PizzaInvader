@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/menu.css">
         <link rel="stylesheet" type="text/css" href="css/login.css">
         <link rel="stylesheet" type="text/css" href="css/signup.css">
+        <link rel="stylesheet" type="text/css" href="css/characterMenu.css">
         <link rel="stylesheet" type="text/css" href="css/typeography.css">
         <style>
             /* Styling needed for a fullscreen canvas and no scrollbars. */
@@ -143,7 +144,7 @@
                     <SELECT id ="day" name = "dd" >
                     </SELECT>
                 </form>                
-                <button class="sign up btn block-cube block-cube-hover" >
+                <button id="signup-btn" class="sign up btn block-cube block-cube-hover" >
                   <div class="bg-top">
                     <div class="bg-inner"></div>
                   </div>
@@ -195,6 +196,8 @@
                     Log In
                   </div></button></form>
         </div>
+
+        
         <audio autoplay loop>
             <source src="sounds/Tarantella Napolitana.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
@@ -213,6 +216,7 @@
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/Sounds.js"></script>
+    <script src="js/characterMenu.js"></script>
     <script src="js/GameOverState.js"></script>
     <script src="js/LevelIntroState.js"></script>
     <script src="js/PauseState.js"></script>
