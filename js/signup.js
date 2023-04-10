@@ -96,6 +96,9 @@ var startButton = document.getElementById("signup-btn");
 
 // Add an event listener to the button
 startButton.addEventListener("click", function() {
+    if (!verify()) {
+        return;
+    }
     // Successful sign up starts the game.
     game.level = 1;
     game.score = 0;
@@ -106,39 +109,95 @@ startButton.addEventListener("click", function() {
 
 function verify() {
     if (!verifyAllFields()) {
+        alert("All fields must be filled.");
+        return false;
     }
     if (!verifyPassword()) {
+        alert("Password must be 8-characters long and contain numbers and letters.");
+        return false;
     }
-    if (!verifyNames()) {
+    if (!verifyFirstName()) {
+        alert("First name must not contain numbers.");
+        return false;
+    }
+    if (!verifyLastName()) {
+        alert("Last name must not contain numbers.");
+        return false;
     }
     if (!verifyEmail()) {
+        return false;
     }
     if (!verifyIdenticalPasswords()) {
+        alert("Passwords are not identical.");
+        return false;
     }
+    return true;
 }
 
 // Verify all fields have been filled.
 function verifyAllFields() {
-    console.log(SUIIIII);
+    var fn = document.getElementById("firstName").value;
+    var ln = document.getElementById("lastName").value;
+    var p = document.getElementById("password").value;
+    var rp = document.getElementById("repassword").value;
+    var e = document.getElementById("email").value;
+
+    console.log(fn.length);
+    console.log(ln.length);
+    console.log(p);
+    console.log(rp.length);
+    console.log(e.length);
+
+    if (fn.length === 0 || ln.length === 0 || p.length === 0 || rp.length === 0 || e.length === 0) {
+        return false;
+    }
     return true;
 };
 
 // Check if the password 8-characters long and contains numbers and letters.
 function verifyPassword() {
+    var p = document.getElementById("password").value;
+
+    if (p.length < 8 || !/\d/.test(p) || !/[a-zA-Z]/g.test(p)) {
+        return false;
+    }
     return true;
 };
 
-// Check if the names does not contain numbers.
-function verifyNames() {
+// Check if the first name is not empty and does not contain numbers.
+function verifyFirstName() {
+    var fn = document.getElementById("firstName").value;
+
+    if (/^\d+$/.test(fn)) {
+        return false;
+    }
+    return true;
+};
+
+// Check if the last name is not empty and does not contain numbers.
+function verifyLastName() {
+    var ln = document.getElementById("lastName").value;
+
+    if (/^\d+$/.test(ln)) {
+        return false;
+    }
     return true;
 };
 
 // Verify email.
 function verifyEmail() {
+    var e = document.getElementById("email").value;
+
     return true;
 };
 
 // Check if the passwords are identical.
 function verifyIdenticalPasswords() {
+    var p = document.getElementById("password").value;
+    var rp = document.getElementById("repassword").value;
+
+    if (p !== rp) {
+        return false;
+    }
     return true;
 };
