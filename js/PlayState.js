@@ -2,6 +2,7 @@
 function PlayState(config, level) {
     this.config = config;
     this.level = level;
+    this.currentBomb = null;
 
     //  Game state.
     this.invaderCurrentVelocity =  10;
@@ -50,8 +51,8 @@ PlayState.prototype.enter = function(game) {
     // }
     var invaders = [];
     var invaderPhotos = ['images/character_1.png', 'images/character_2.png', 'images/character_3.png', 'images/character_4.png'];
-    for (var row = 0; row < 5; row++){
-        for (var col = 0; col < 4; col++){
+    for (var row = 0; row < 4; row++){
+        for (var col = 0; col < 5; col++){
             var photo = new Image();
             photo.src = invaderPhotos[Math.floor(Math.random() * invaderPhotos.length)];
             invaders.push(new Invader((game.width / 2) + ((2 - col) * 85), (game.gameBounds.top + row * 65), row, col, 'Invader', photo));
@@ -208,9 +209,12 @@ PlayState.prototype.update = function(game, dt) {
         if(!invader) continue;
         var chance = this.bombRate * dt;
         if(chance > Math.random()) {
-            //  Fire!
-            this.bombs.push(new Bomb(invader.x, invader.y + invader.height / 2, 
-                this.bombMinVelocity + Math.random()*(this.bombMaxVelocity - this.bombMinVelocity)));
+            if (!this.currentBomb || this.currentBomb.y >= game.gameCanvas.height * 0.75) {
+                //  Fire!
+                this.currentBomb = new Bomb(invader.x, invader.y + invader.height / 2, 
+                this.bombMinVelocity + Math.random()*(this.bombMaxVelocity - this.bombMinVelocity))
+                this.bombs.push(this.currentBomb);
+            }
         }
     }
 
@@ -222,6 +226,7 @@ PlayState.prototype.update = function(game, dt) {
             this.bombs.splice(i--, 1);
             game.lives--;
             game.sounds.playSound('explosion');
+            this.ship = new Ship(game.width / 2, game.gameBounds.bottom);
         }
                 
     }

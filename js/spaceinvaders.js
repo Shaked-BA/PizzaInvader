@@ -76,7 +76,7 @@ function Bomb(x, y, velocity) {
 function Invader(x, y, rank, file, type, photo) {
     this.x = x;
     this.y = y;
-    this.rank = rank;
+    this.rank = (20 - (rank * 5));
     this.file = file;
     this.type = type;
     this.width = 71;
