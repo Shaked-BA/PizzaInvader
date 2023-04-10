@@ -90,3 +90,16 @@ function change_month(select) {
     }
     $(day).val(val);
 }
+
+// Get the button element from the DOM
+var startButton = document.getElementById("signup-btn");
+
+// Add an event listener to the button
+startButton.addEventListener("click", function() {
+    // Space starts the game.
+    game.level = 1;
+    game.score = 0;
+    game.lives = 3;
+    game.moveToState(new LevelIntroState(game.level));
+    setVisibility('signup', 'none');
+});
