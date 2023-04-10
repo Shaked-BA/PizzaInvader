@@ -96,10 +96,49 @@ var startButton = document.getElementById("signup-btn");
 
 // Add an event listener to the button
 startButton.addEventListener("click", function() {
-    // Space starts the game.
+    // Successful sign up starts the game.
     game.level = 1;
     game.score = 0;
     game.lives = 3;
     game.moveToState(new LevelIntroState(game.level));
     setVisibility('signup', 'none');
 });
+
+function verify() {
+    if (!verifyAllFields()) {
+    }
+    if (!verifyPassword()) {
+    }
+    if (!verifyNames()) {
+    }
+    if (!verifyEmail()) {
+    }
+    if (!verifyIdenticalPasswords()) {
+    }
+}
+
+// Verify all fields have been filled.
+function verifyAllFields() {
+    console.log(SUIIIII);
+    return true;
+};
+
+// Check if the password 8-characters long and contains numbers and letters.
+function verifyPassword() {
+    return true;
+};
+
+// Check if the names does not contain numbers.
+function verifyNames() {
+    return true;
+};
+
+// Verify email.
+function verifyEmail() {
+    return true;
+};
+
+// Check if the passwords are identical.
+function verifyIdenticalPasswords() {
+    return true;
+};

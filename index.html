@@ -42,9 +42,7 @@
             }
         </style>
     </head>
-    
-    <!-- @NOTE: the onclicks are used for touch devices since I'm lazy and didnt use <a> tags -->
-        
+            
     <body>
         <div class="mainContainer"></div>
         <div id="Menu">
@@ -68,9 +66,9 @@
             </ul>
         </div>
         <div id="signup">
-            <form class="form" autocomplete="off">
+            <form class="form" autocomplete="off" onsubmit="return verifyAllFields()">
                 <div class="control block-cube block-input">
-                  <input name="username" type="text" placeholder="Username" /><div class="bg-top">
+                  <input name="username" type="text" placeholder="Username" /><div class="bg-top" required>
                     <div class="bg-inner"></div>
                   </div>
                   <div class="bg-right">
@@ -81,7 +79,7 @@
                   </div>
                 </div>
                 <div class="control block-cube block-input">
-                  <input name="password" type="password" placeholder="Password"/><div class="bg-top">
+                  <input name="password" type="password" placeholder="Password"/><div class="bg-top" required>
                     <div class="bg-inner"></div>
                   </div>
                   <div class="bg-right">
@@ -92,7 +90,7 @@
                   </div>
                 </div>
                 <div class="control block-cube block-input">
-                    <input name="repassword" type="password" placeholder="Verify Password"/><div class="bg-top">
+                    <input name="repassword" type="password" placeholder="Verify Password"/><div class="bg-top" required>
                       <div class="bg-inner"></div>
                     </div>
                     <div class="bg-right">
@@ -103,7 +101,7 @@
                     </div>
                   </div>
                   <div class="control block-cube block-input">
-                    <input name="firstName" type="text" placeholder="First Name"/><div class="bg-top">
+                    <input name="firstName" type="text" placeholder="First Name"/><div class="bg-top" required>
                       <div class="bg-inner"></div>
                     </div>
                     <div class="bg-right">
@@ -114,7 +112,7 @@
                     </div>
                   </div>
                   <div class="control block-cube block-input">
-                    <input name="lastName" type="text" placeholder="Last Name"/><div class="bg-top">
+                    <input name="lastName" type="text" placeholder="Last Name"/><div class="bg-top" required>
                       <div class="bg-inner"></div>
                     </div>
                     <div class="bg-right">
@@ -125,7 +123,7 @@
                     </div>
                   </div>
                   <div class="control block-cube block-input">
-                    <input name="email" type="text" placeholder="Email"/><div class="bg-top">
+                    <input name="email" type="text" placeholder="Email"/><div class="bg-top" required>
                       <div class="bg-inner"></div>
                     </div>
                     <div class="bg-right">
@@ -144,7 +142,7 @@
                     <SELECT id ="day" name = "dd" >
                     </SELECT>
                 </form>                
-                <button id="signup-btn" class="sign up btn block-cube block-cube-hover" >
+                <button id="signup-btn" type="submit" class="sign up btn block-cube block-cube-hover">
                   <div class="bg-top">
                     <div class="bg-inner"></div>
                   </div>
@@ -199,7 +197,7 @@
 
         
         <audio autoplay loop>
-            <source src="sounds/Tarantella Napolitana.mp3" type="audio/mpeg">
+            <source src="sounds/TarantellaNapolitana.wav" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <div id="starfield"></div>
