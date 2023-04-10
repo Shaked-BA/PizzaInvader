@@ -142,12 +142,6 @@ function verifyAllFields() {
     var rp = document.getElementById("repassword").value;
     var e = document.getElementById("email").value;
 
-    console.log(fn.length);
-    console.log(ln.length);
-    console.log(p);
-    console.log(rp.length);
-    console.log(e.length);
-
     if (fn.length === 0 || ln.length === 0 || p.length === 0 || rp.length === 0 || e.length === 0) {
         return false;
     }
