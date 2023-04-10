@@ -119,6 +119,7 @@ function verify() {
 
 // Verify all fields have been filled.
 function verifyAllFields() {
+    console.log(SUIIIII);
     return true;
 };
 
