@@ -87,11 +87,19 @@ PlayState.prototype.update = function(game, dt) {
     }
 
     //  Keep the ship in bounds.
-    if(this.ship.x < game.gameBounds.left) {
-        this.ship.x = game.gameBounds.left;
+    if(this.ship.x < game.gameBounds.left + 20) {
+        this.ship.x = game.gameBounds.left + 20;
     }
     if(this.ship.x > game.gameBounds.right) {
         this.ship.x = game.gameBounds.right;
+    }
+
+    if(this.ship.y > game.gameBounds.bottom) {
+        this.ship.y = game.gameBounds.bottom;
+    }
+
+    if(this.ship.y < game.gameCanvas.height * 0.6) {
+        this.ship.y = game.gameCanvas.height * 0.6;
     }
 
     //  Move each bomb.
@@ -225,8 +233,13 @@ PlayState.prototype.update = function(game, dt) {
                 bomb.y >= (this.ship.y - this.ship.height/2) && bomb.y <= (this.ship.y + this.ship.height/2)) {
             this.bombs.splice(i--, 1);
             game.lives--;
-            game.sounds.playSound('explosion');
+            if (game.lives > 0) {
+                game.sounds.playSound('explosion');
+            }
             this.ship = new Ship(game.width / 2, game.gameBounds.bottom);
+            if (bomb = this.currentBomb && this.currentBomb.y <= game.gameCanvas.height * 0.75) {
+                this.currentBomb = null;
+            }
         }
                 
     }
@@ -240,12 +253,14 @@ PlayState.prototype.update = function(game, dt) {
             (invader.y - invader.height/2) < (this.ship.y + this.ship.height/2)) {
             //  Dead by collision!
             game.lives = 0;
-            game.sounds.playSound('explosion');
         }
     }
 
     //  Check for failure
     if(game.lives <= 0) {
+        //  Play the 'lose' sound.
+        game.sounds.playSound('lose');
+
         game.moveToState(new GameOverState());
     }
 
