@@ -99,6 +99,10 @@ startButton.addEventListener("click", function() {
     if (!verify()) {
         return;
     }
+    var u = document.getElementById("susername").value;
+    var p = document.getElementById("password").value;
+    players[u] = p;
+    
     // Successful sign up starts the game.
     game.level = 1;
     game.score = 0;
@@ -146,6 +150,14 @@ function verifyAllFields() {
     if (fn.length === 0 || ln.length === 0 || p.length === 0 || rp.length === 0 || e.length === 0) {
         return false;
     }
+
+    var y = document.getElementById("year").value;
+    var m = document.getElementById("month").value;
+    var d = document.getElementById("day").value;
+    if (y === "year" || m === "month" || d === "day") {
+        return false;
+    }
+
     return true;
 };
 
