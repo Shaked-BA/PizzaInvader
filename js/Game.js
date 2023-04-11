@@ -30,6 +30,13 @@ function Game() {
     this.intervalId = 0;
     this.score = 0;
     this.level = 1;
+    this.characterImages = {
+        'Rosetta': 'images/characters/rosetta.png',
+        'Alfredo': 'images/characters/alfredo.png',
+        'Gina': 'images/characters/gina.png', 
+        'Billie': 'images/characters/billie.png',
+        'Luna': 'images/characters/luna.png'
+    };
     
     // logged in players dictionary
     this.players = {"p": "testuser"};
