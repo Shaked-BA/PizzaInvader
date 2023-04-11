@@ -1,5 +1,3 @@
-var players = {"p": "testuser"};
-
 // Get the button element from the DOM
 var loginButton = document.getElementById("login-btn");
 
@@ -21,7 +19,7 @@ function validate() {
     var un = document.getElementById("username").value;
     var lp = document.getElementById("lpassword").value;
 
-    if (un in players && players[un] === lp) {
+    if (un in game.players && game.players[un] === lp) {
         return true;
     }
     return false;

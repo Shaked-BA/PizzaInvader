@@ -101,7 +101,7 @@ signupButton.addEventListener("click", function() {
     }
     var u = document.getElementById("susername").value;
     var p = document.getElementById("password").value;
-    players[u] = p;
+    game.players[u] = p;
 
     // Successful sign up starts the game.
     game.level = 1;

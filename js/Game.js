@@ -30,6 +30,9 @@ function Game() {
     this.intervalId = 0;
     this.score = 0;
     this.level = 1;
+    
+    // logged in players dictionary
+    this.players = {"p": "testuser"};
 
     //  The state stack.
     this.stateStack = [];

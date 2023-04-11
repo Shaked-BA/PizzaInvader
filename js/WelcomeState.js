@@ -12,6 +12,9 @@ WelcomeState.prototype.enter = function(game) {
     game.sounds.loadSound('enemyShoot', 'sounds/burf.wav');
     game.sounds.loadSound('bang', 'sounds/enemyEat.wav');
     game.sounds.loadSound('explosion', 'sounds/awww-why.wav');
+    game.sounds.loadSound('flipflop', 'sounds/flipflop.wav');
+    game.sounds.loadSound('click', 'sounds/click.wav');
+    game.sounds.loadSound('lose', 'sounds/lose.wav');
 };
 
 WelcomeState.prototype.update = function (game, dt) {
