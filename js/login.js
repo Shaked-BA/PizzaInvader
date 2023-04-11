@@ -9,7 +9,7 @@ loginButton.addEventListener("click", function() {
         alert("Wrong username or password.");
         return;
     }
-    // Space starts the game.
+    // Successful login starts the game.
     game.level = 1;
     game.score = 0;
     game.lives = 3;
