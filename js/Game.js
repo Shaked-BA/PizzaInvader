@@ -65,6 +65,10 @@ Game.prototype.initialise = function(gameCanvas) {
         top: gameCanvas.height / 2 - this.config.gameHeight / 2,
         bottom: gameCanvas.height / 2 + this.config.gameHeight / 2,
     };
+
+    this.level = 1;
+    this.score = 0;
+    this.lives = 3;
 };
 
 Game.prototype.moveToState = function(state) {
