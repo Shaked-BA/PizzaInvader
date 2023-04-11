@@ -69,7 +69,7 @@
         <div id="signup">
             <form class="form" autocomplete="off">
                 <div class="control block-cube block-input">
-                  <input id=susername name="username" type="text" placeholder="Username" /><div class="bg-top">
+                  <input id="susername" name="username" type="text" placeholder="Username" /><div class="bg-top">
                     <div class="bg-inner"></div>
                   </div>
                   <div class="bg-right">
@@ -80,7 +80,7 @@
                   </div>
                 </div>
                 <div class="control block-cube block-input">
-                  <input id=password name="password" type="password" placeholder="Password"/><div class="bg-top">
+                  <input id="password" name="password" type="password" placeholder="Password"/><div class="bg-top">
                     <div class="bg-inner"></div>
                   </div>
                   <div class="bg-right">
@@ -91,7 +91,7 @@
                   </div>
                 </div>
                 <div class="control block-cube block-input">
-                    <input id=repassword name="repassword" type="password" placeholder="Verify Password"/><div class="bg-top">
+                    <input id="repassword" name="repassword" type="password" placeholder="Verify Password"/><div class="bg-top">
                       <div class="bg-inner"></div>
                     </div>
                     <div class="bg-right">
@@ -160,7 +160,7 @@
         <div id="login">
             <form class="form" autocomplete="off">
                 <div class="control block-cube block-input">
-                  <input id=username name="username" type="text" placeholder="Username" /><div class="bg-top">
+                  <input id="username" name="username" type="text" placeholder="Username" /><div class="bg-top">
                     <div class="bg-inner"></div>
                   </div>
                   <div class="bg-right">
@@ -171,7 +171,7 @@
                   </div>
                 </div>
                 <div class="control block-cube block-input">
-                  <input id=lpassword name="password" type="password" placeholder="Password"/><div class="bg-top">
+                  <input id="lpassword" name="password" type="password" placeholder="Password"/><div class="bg-top">
                     <div class="bg-inner"></div>
                   </div>
                   <div class="bg-right">
@@ -181,7 +181,7 @@
                     <div class="bg-inner"></div>
                   </div>
                 </div>
-                <button id="login-btn"class="btn block-cube block-cube-hover" >
+                <button id="login-btn" type="submit" class="btn block-cube block-cube-hover" >
                   <div class="bg-top">
                     <div class="bg-inner"></div>
                   </div>
@@ -196,7 +196,6 @@
                   </div></button></form>
         </div>
 
-        
         <audio autoplay loop>
             <source src="sounds/TarantellaNapolitana.wav" type="audio/mpeg">
             Your browser does not support the audio element.
@@ -211,7 +210,6 @@
                 more bombs as you complete each level!</p>
                 <p><a id="muteLink" href="#" onclick="toggleMute()">mute</a></p>
         </div> -->
-            
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/Sounds.js"></script>

@@ -340,7 +340,6 @@ PlayState.prototype.fireRocket = function() {
         this.lastRocketTime = (new Date()).valueOf();
 
         //  Play the 'shoot' sound.
-        console.log(game.sounds);
         game.sounds.playSound('shoot');
     }
 };
