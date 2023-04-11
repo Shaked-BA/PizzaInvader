@@ -38,7 +38,6 @@ Sounds.prototype.loadSound = function(name, url) {
     req.responseType = 'arraybuffer';
     req.onload = function() {
         self.audioContext.decodeAudioData(req.response, function(buffer) {
-            console.log("loaded", buffer, self.sounds)
             self.sounds[name] = {buffer: buffer};
         });
     };
