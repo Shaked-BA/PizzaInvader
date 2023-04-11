@@ -18,7 +18,6 @@ function PlayState(config, level) {
 }
 
 PlayState.prototype.enter = function(game) {
-
     //  Create the ship.
     var shipImage = new Image();
     shipImage.src = game.selectedCharacterImage;
@@ -344,6 +343,8 @@ PlayState.prototype.keyDown = function(game, keyCode) {
     }
     if(keyCode == KEY_P) {
         //  Push the pause state.
+        var gameAudioPlayer = document.getElementById('game-audio-player');
+        gameAudioPlayer.pause();
         game.sounds.playSound('pause');
         game.pushState(new PauseState());
     }

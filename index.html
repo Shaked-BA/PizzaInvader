@@ -3,6 +3,7 @@
     <head>
         <title>PAZZA!</title>
         <link rel="icon" type="image/x-icon" href="/images/pizza_stars.ico" sizes="32x32">
+        <link rel="preload" as="image" href="/images/background.png">
         <link rel="stylesheet" type="text/css" href="css/core.css">
         <link rel="stylesheet" type="text/css" href="css/menu.css">
         <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -213,8 +214,12 @@
           </div>
         </div>
 
-        <audio autoplay loop>
+        <audio id="menu-audio-player" autoplay loop>
             <source src="sounds/TarantellaNapolitana.wav" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <audio id="game-audio-player" loop>
+            <source src="sounds/flipflop.wav" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <div id="starfield"></div>

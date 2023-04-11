@@ -95,9 +95,36 @@ Starfield.prototype.draw = function() {
 	}
 };
 
+Starfield.prototype.drawPlayingBackground = function() {
+	var ctx = this.canvas.getContext("2d");
+
+	var photo = new Image();
+	photo.src = 'images/background.png';
+	ctx.drawImage(photo, 0,0);
+}
+
+Starfield.prototype.clear = function() {
+	var ctx = this.canvas.getContext("2d");
+	ctx.clearRect(0, 0, this.width, this.height);
+}
+
 function Star(x, y, size, velocity) {
 	this.x = x;
 	this.y = y; 
 	this.size = size;
 	this.velocity = velocity;
+}
+
+Starfield.prototype.onCharacterSelect = function() {
+	this.stop();
+    this.clear();
+    this.drawPlayingBackground();
+	switchMusic();
+}
+
+var switchMusic = function() {
+	var menuAudioPlayer = document.getElementById('menu-audio-player');
+	menuAudioPlayer.pause();
+	var gameAudioPlayer = document.getElementById('game-audio-player');
+	gameAudioPlayer.play();
 }

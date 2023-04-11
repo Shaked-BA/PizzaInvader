@@ -15,5 +15,6 @@ var onCharacterMouseEnter = function(element) {
 var onCharacterClick = function(event) {
     game.selectedCharacterImage = game.characterImages[event.currentTarget.id];
     game.moveToState(new LevelIntroState(game.level));
+    starfield.onCharacterSelect()
     setVisibility('character-menu', 'none');
 };
