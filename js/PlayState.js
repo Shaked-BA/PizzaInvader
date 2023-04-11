@@ -20,7 +20,10 @@ function PlayState(config, level) {
 PlayState.prototype.enter = function(game) {
 
     //  Create the ship.
-    this.ship = new Ship(game.width / 2, game.gameBounds.bottom);
+    var shipImage = new Image();
+    shipImage.src = game.selectedCharacterImage;
+
+    this.ship = new Ship(game.width / 2, game.gameBounds.bottom, shipImage);
 
     //  Setup initial state.
     this.invaderCurrentVelocity =  10;
@@ -278,8 +281,9 @@ PlayState.prototype.draw = function(game, dt, ctx) {
     ctx.clearRect(0, 0, game.width, game.height);
     
     // //  Draw ship.
-    ctx.fillStyle = '#999999';
-    ctx.fillRect(this.ship.x - (this.ship.width / 2), this.ship.y - (this.ship.height / 2), this.ship.width, this.ship.height);
+    ctx.fillStyle = '#006600';
+    // ctx.fillRect(this.ship.x - (this.ship.width / 2), this.ship.y - (this.ship.height / 2), this.ship.width, this.ship.height);
+    ctx.drawImage(this.ship.photo, this.ship.x - (this.ship.width / 2), this.ship.y - (this.ship.height / 2));
 
     //  Draw invaders.
     ctx.fillStyle = '#006600';
