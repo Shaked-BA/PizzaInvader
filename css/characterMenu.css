@@ -82,17 +82,17 @@ color: white;
 text-shadow: 3px 3px #555;
 }
 .character-option:nth-child(1):after {
-content: "LEO";
+content: "ROSETTA";
 }
 .character-option:nth-child(2):after {
-content: "RAPH";
+content: "ALFREDO";
 }
 .character-option:nth-child(3):after {
-content: "DON";
+content: "GINA";
 }
 .character-option:nth-child(4):after {
-content: "MIKE";
+content: "BILLIE";
 }
 .character-option:nth-child(5):after {
-content: "BILLY";
+content: "LUNA";
 }
