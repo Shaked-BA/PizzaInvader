@@ -92,17 +92,17 @@ function change_month(select) {
 }
 
 // Get the button element from the DOM
-var startButton = document.getElementById("signup-btn");
+var signupButton = document.getElementById("signup-btn");
 
 // Add an event listener to the button
-startButton.addEventListener("click", function() {
+signupButton.addEventListener("click", function() {
     if (!verify()) {
         return;
     }
     var u = document.getElementById("susername").value;
     var p = document.getElementById("password").value;
     players[u] = p;
-    
+
     // Successful sign up starts the game.
     game.level = 1;
     game.score = 0;
