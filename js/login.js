@@ -3,16 +3,15 @@ var loginButton = document.getElementById("login-btn");
 
 // Add an event listener to the button
 function onLogin() {
-    if (!validate()) {
+    if (validate()) {
         alert("Wrong username or password.");
         return;
     }
-    // Successful login starts the game.
-    game.level = 1;
-    game.score = 0;
-    game.lives = 3;
-    game.moveToState(new LevelIntroState(game.level));
+    // Successful login leads to character menu.
+    
+    // game.moveToState(new LevelIntroState(game.level));
     setVisibility('login', 'none');
+    setVisibility('character-menu', 'flex');
 };
 
 function validate() {

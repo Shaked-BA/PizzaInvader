@@ -103,12 +103,11 @@ signupButton.addEventListener("click", function() {
     var p = document.getElementById("password").value;
     game.players[u] = p;
 
-    // Successful sign up starts the game.
-    game.level = 1;
-    game.score = 0;
-    game.lives = 3;
-    game.moveToState(new LevelIntroState(game.level));
+    // Successful sign up leads to character menu.
+    
+    // game.moveToState(new LevelIntroState(game.level));
     setVisibility('signup', 'none');
+    setVisibility('character-menu', 'flex');
 });
 
 function verify() {
