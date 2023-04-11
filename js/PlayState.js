@@ -337,6 +337,7 @@ PlayState.prototype.keyDown = function(game, keyCode) {
     }
     if(keyCode == KEY_P) {
         //  Push the pause state.
+        game.sounds.playSound('pause');
         game.pushState(new PauseState());
     }
 };

@@ -15,7 +15,7 @@ WelcomeState.prototype.enter = function(game) {
     game.sounds.loadSound('flipflop', 'sounds/flipflop.wav');
     game.sounds.loadSound('click', 'sounds/click.wav');
     game.sounds.loadSound('lose', 'sounds/lose.wav');
-    game.sounds.loadSound('collision', 'sounds/excuse_me.wav');
+    game.sounds.loadSound('pause', 'sounds/excuse_me.wav');
 };
 
 WelcomeState.prototype.update = function (game, dt) {
