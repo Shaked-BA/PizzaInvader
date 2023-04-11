@@ -86,7 +86,7 @@ Starfield.prototype.draw = function() {
 	ctx.fillRect(0, 0, this.width, this.height);
 
 	//	Draw photos.
-	var photos = ['images/half_pizza.png', 'images/pizza_stars.png', 'images/pizza_stars_2.png', 'images/pizza_star_3.png'];
+	var photos = ['images/stars/half_pizza.png', 'images/stars/pizza_stars.png', 'images/stars/pizza_stars_2.png', 'images/stars/pizza_star_3.png'];
 	for(var i=0; i<this.stars.length;i++) {
 		var photo = new Image();
 		photo.src = photos[i % 4];

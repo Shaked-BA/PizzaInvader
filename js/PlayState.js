@@ -53,7 +53,7 @@ PlayState.prototype.enter = function(game) {
     //     }
     // }
     var invaders = [];
-    var invaderPhotos = ['images/character_1.png', 'images/character_2.png', 'images/character_3.png', 'images/character_4.png'];
+    var invaderPhotos = ['images/clients/character_1.png', 'images/clients/character_2.png', 'images/clients/character_3.png', 'images/clients/character_4.png'];
     for (var row = 0; row < 4; row++){
         for (var col = 0; col < 5; col++){
             var photo = new Image();
@@ -239,7 +239,10 @@ PlayState.prototype.update = function(game, dt) {
             if (game.lives > 0) {
                 game.sounds.playSound('explosion');
             }
-            this.ship = new Ship(game.width / 2, game.gameBounds.bottom);
+            var shipImage = new Image();
+            shipImage.src = game.selectedCharacterImage;
+
+            this.ship = new Ship(game.width / 2, game.gameBounds.bottom, shipImage);
             if (bomb = this.currentBomb && this.currentBomb.y <= game.gameCanvas.height * 0.75) {
                 this.currentBomb = null;
             }
@@ -283,7 +286,7 @@ PlayState.prototype.draw = function(game, dt, ctx) {
     // //  Draw ship.
     ctx.fillStyle = '#006600';
     // ctx.fillRect(this.ship.x - (this.ship.width / 2), this.ship.y - (this.ship.height / 2), this.ship.width, this.ship.height);
-    ctx.drawImage(this.ship.photo, this.ship.x - (this.ship.width / 2), this.ship.y - (this.ship.height / 2));
+    ctx.drawImage(this.ship.photo, this.ship.x, this.ship.y, this.ship.height, this.ship.width);
 
     //  Draw invaders.
     ctx.fillStyle = '#006600';
@@ -296,14 +299,14 @@ PlayState.prototype.draw = function(game, dt, ctx) {
     ctx.fillStyle = '#ff5555';
     for(var i=0; i<this.bombs.length; i++) {
         var photo = new Image();
-		photo.src = 'images/boss_bullet.png';
+		photo.src = 'images/bullets/boss_bullet.png';
         var bomb = this.bombs[i];
         ctx.drawImage(photo, bomb.x - 2, bomb.y - 2, 20, 20);
     }
 
     //  Draw rockets.
     ctx.fillStyle = '#ff5555';
-    var rocketPhotos = ['images/bullet_1.png', 'images/bullet_2.png'];
+    var rocketPhotos = ['images/bullets/bullet_1.png', 'images/bullets/bullet_2.png'];
     for(var i=0; i<this.rockets.length; i++) {
         var photo = new Image();
         photo.src = rocketPhotos[i % 2];

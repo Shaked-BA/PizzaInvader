@@ -31,11 +31,11 @@ function Game() {
     this.score = 0;
     this.level = 1;
     this.characterImages = {
-        'Rosetta': 'images/characters/rosetta.png',
-        'Alfredo': 'images/characters/alfredo.png',
-        'Gina': 'images/characters/gina.png', 
-        'Billie': 'images/characters/billie.png',
-        'Luna': 'images/characters/luna.png'
+        'rosetta': 'images/characters/rosetta.png',
+        'alfredo': 'images/characters/alfredo.png',
+        'gina': 'images/characters/gina.png', 
+        'billie': 'images/characters/billie.png',
+        'luna': 'images/characters/luna.png'
     };
     
     // logged in players dictionary

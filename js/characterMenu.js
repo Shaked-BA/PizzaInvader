@@ -13,8 +13,7 @@ var onCharacterMouseEnter = function(element) {
 };
 
 var onCharacterClick = function(event) {
-    event.preventDefault();
-    game.selectedCharacterImage = game.characterImages[event.target.id];
+    game.selectedCharacterImage = game.characterImages[event.currentTarget.id];
     game.moveToState(new LevelIntroState(game.level));
     setVisibility('character-menu', 'none');
 };
