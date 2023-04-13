@@ -50,17 +50,39 @@ Sounds.prototype.loadSound = function(name, url) {
     }
 };
 
-Sounds.prototype.playSound = function(name) {
+// Sounds.prototype.playSound = function(name) {
 
+//     //  If we've not got the sound, don't bother playing it.
+//     if(!this.sounds[name] || this.mute === true) {
+//         return;
+//     }
+
+//     //  Create a sound source, set the buffer, connect to the speakers and
+//     //  play the sound.
+//     var source = this.audioContext.createBufferSource();
+//     source.buffer = this.sounds[name].buffer;
+//     source.connect(this.audioContext.destination);
+//     source.volume = 10;
+//     source.start(0);
+// };
+Sounds.prototype.playSound = function(name, volume) {
     //  If we've not got the sound, don't bother playing it.
     if(!this.sounds[name] || this.mute === true) {
         return;
     }
 
-    //  Create a sound source, set the buffer, connect to the speakers and
-    //  play the sound.
+    //  Create a sound source and connect it to a gain node.
     var source = this.audioContext.createBufferSource();
     source.buffer = this.sounds[name].buffer;
-    source.connect(this.audioContext.destination);
+    var gainNode = this.audioContext.createGain();
+    source.connect(gainNode);
+
+    // Set the gain (volume) of the sound.
+    gainNode.gain.value = volume || 1;
+
+    // Connect the gain node to the speakers and play the sound.
+    gainNode.connect(this.audioContext.destination);
     source.start(0);
 };
+
+
