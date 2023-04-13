@@ -17,12 +17,16 @@ function PlayState(config, level) {
     this.bombs = [];
 }
 
+
+
 PlayState.prototype.enter = function(game) {
+    //debugger;
     //  Create the ship.
     var shipImage = new Image();
     shipImage.src = game.selectedCharacterImage;
+ 
 
-    this.ship = new Ship(game.width / 2, game.gameBounds.bottom, shipImage);
+    this.ship = new Ship(game.width / 2, game.gameBounds.bottom, game.characterWidth, game.characterHeight, shipImage);
 
     //  Setup initial state.
     this.invaderCurrentVelocity =  10;
@@ -197,7 +201,7 @@ PlayState.prototype.update = function(game, dt) {
         }
         if(bang) {
             this.invaders.splice(i--, 1);
-            game.sounds.playSound('bang');
+            game.sounds.playSound('bang', 0.5);
         }
     }
 
@@ -236,12 +240,12 @@ PlayState.prototype.update = function(game, dt) {
             this.bombs.splice(i--, 1);
             game.lives--;
             if (game.lives > 0) {
-                game.sounds.playSound('explosion');
+                game.sounds.playSound('explosion', 0.5);
             }
             var shipImage = new Image();
             shipImage.src = game.selectedCharacterImage;
 
-            this.ship = new Ship(game.width / 2, game.gameBounds.bottom, shipImage);
+            this.ship = new Ship(game.width / 2, game.gameBounds.bottom, game.characterWidth, game.characterHeight, shipImage);
             if (bomb = this.currentBomb && this.currentBomb.y <= game.gameCanvas.height * 0.75) {
                 this.currentBomb = null;
             }
@@ -264,11 +268,12 @@ PlayState.prototype.update = function(game, dt) {
     //  Check for failure
     if(game.lives <= 0) {
         //  Play the 'lose' sound.
-        game.sounds.playSound('lose');
+        game.sounds.playSound('lose', 1.5);
 
         game.moveToState(new GameOverState());
     }
 
+    // TODO - change the level update to changing the speed every 5 seconds + speeding up the nusic + can add boss 
     //  Check for victory
     if(this.invaders.length === 0) {
         game.score += this.level * 50;
@@ -345,7 +350,7 @@ PlayState.prototype.keyDown = function(game, keyCode) {
         //  Push the pause state.
         var gameAudioPlayer = document.getElementById('game-audio-player');
         gameAudioPlayer.pause();
-        game.sounds.playSound('pause');
+        game.sounds.playSound('pause', 2.3);
         game.pushState(new PauseState());
     }
 };
@@ -364,6 +369,6 @@ PlayState.prototype.fireRocket = function() {
         this.lastRocketTime = (new Date()).valueOf();
 
         //  Play the 'shoot' sound.
-        game.sounds.playSound('shoot');
+        game.sounds.playSound('shoot', 0.5);
     }
 };
