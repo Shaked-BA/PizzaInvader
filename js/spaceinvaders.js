@@ -36,11 +36,11 @@ var KEY_P = 80;
   The ship has a position and that's about it.
 
 */
-function Ship(x, y, photo) {
+function Ship(x, y, width, height, photo) {
     this.x = x;
     this.y = y;
-    this.width = 50;
-    this.height = 60;
+    this.width = width;
+    this.height = height;
     this.photo = photo;
 }
 

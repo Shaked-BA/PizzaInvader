@@ -1,5 +1,5 @@
 function GameOverState() {
-
+    
 }
 
 GameOverState.prototype.update = function(game, dt) {

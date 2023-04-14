@@ -7,6 +7,8 @@ PauseState.prototype.keyDown = function(game, keyCode) {
     if(keyCode == KEY_P) {
         //  Pop the pause state.
         game.popState();
+        var gameAudioPlayer = document.getElementById('game-audio-player');
+        gameAudioPlayer.play();
     }
 };
 
