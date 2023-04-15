@@ -30,6 +30,8 @@ var onCharacterClick = function(event) {
     };
     game.selectedCharacterImage = game.characterImages[event.currentTarget.id];
     game.moveToState(new LevelIntroState(game.level));
+    // setVisibility('gameCanvas', 'block');
     starfield.onCharacterSelect();
     setVisibility('character-menu', 'none');
+    setVisibility('playing-background', 'inline-block')
 };

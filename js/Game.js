@@ -10,8 +10,6 @@ function Game() {
         invaderDropDistance: 20,
         rocketVelocity: 120,
         rocketMaxFireRate: 2,
-        gameWidth: 850,
-        gameHeight: 500,
         fps: 50,
         debugMode: false,
         invaderRanks: 2,
@@ -66,13 +64,19 @@ Game.prototype.initialise = function(gameCanvas) {
     this.height = gameCanvas.height;
 
     //  Set the state game bounds.
+    // this.gameBounds = {
+    //     left: gameCanvas.width / 2 - this.config.gameWidth / 2,
+    //     right: gameCanvas.width / 2 + this.config.gameWidth / 3 + 70,
+    //     top: gameCanvas.height / 2 - this.config.gameHeight / 2,
+    //     bottom: gameCanvas.height / 2 + this.config.gameHeight / 2,
+    // };
     this.gameBounds = {
-        left: gameCanvas.width / 2 - this.config.gameWidth / 2,
-        right: gameCanvas.width / 2 + this.config.gameWidth / 3 + 80,
-        top: gameCanvas.height / 2 - this.config.gameHeight / 2,
-        bottom: gameCanvas.height / 2 + this.config.gameHeight / 2,
+        left: 0,
+        right: 0.85 * this.width,
+        top: 0,
+        bottom: 0.925* this.height
     };
-
+    
     this.level = 1;
     this.score = 0;
     this.lives = 3;
