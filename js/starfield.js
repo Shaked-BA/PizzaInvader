@@ -8,7 +8,7 @@ function Starfield() {
 	this.fps = 30;
 	this.canvas = null;
 	this.width = 0;
-	this.width = 0;
+	this.height = 0;
 	this.minVelocity = 15;
 	this.maxVelocity = 30;
 	this.stars = 100;
@@ -23,14 +23,6 @@ Starfield.prototype.initialise = function(div) {
 	this.containerDiv = div;
 	self.width = window.innerWidth;
 	self.height = window.innerHeight;
-
-	window.onresize = function(event) {
-		self.width = window.innerWidth;
-		self.height = window.innerHeight;
-		self.canvas.width = self.width;
-		self.canvas.height = self.height;
-		self.draw();
- 	}
 
 	//	Create the canvas.
 	var canvas = document.createElement('canvas');
@@ -97,10 +89,6 @@ Starfield.prototype.draw = function() {
 
 Starfield.prototype.drawPlayingBackground = function() {
 	var ctx = this.canvas.getContext("2d");
-
-	var photo = new Image();
-	photo.src = 'images/background.png';
-	ctx.drawImage(photo, 0,0);
 }
 
 Starfield.prototype.clear = function() {
@@ -108,17 +96,10 @@ Starfield.prototype.clear = function() {
 	ctx.clearRect(0, 0, this.width, this.height);
 }
 
-function Star(x, y, size, velocity) {
-	this.x = x;
-	this.y = y; 
-	this.size = size;
-	this.velocity = velocity;
-}
-
 Starfield.prototype.onCharacterSelect = function() {
 	this.stop();
-    this.clear();
-    this.drawPlayingBackground();
+	this.clear();
+	this.drawPlayingBackground();
 	switchMusic();
 }
 
@@ -127,4 +108,11 @@ var switchMusic = function() {
 	menuAudioPlayer.pause();
 	var gameAudioPlayer = document.getElementById('game-audio-player');
 	gameAudioPlayer.play();
+}
+
+function Star(x, y, size, velocity) {
+	this.x = x;
+	this.y = y; 
+	this.size = size;
+	this.velocity = velocity;
 }

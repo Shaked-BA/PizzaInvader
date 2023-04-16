@@ -3,13 +3,11 @@ var loginButton = document.getElementById("login-btn");
 
 // Add an event listener to the button
 function onLogin() {
-    if (validate()) {
+    if (!validate()) {
         alert("Wrong username or password.");
         return;
     }
     // Successful login leads to character menu.
-    
-    // game.moveToState(new LevelIntroState(game.level));
     setVisibility('login', 'none');
     setVisibility('character-menu', 'flex');
 };

@@ -1,29 +1,3 @@
-/* core.css */
-/* lean and simple css reset, based on Tantek Celik's reset - see comments below. */
-/* (c) 2004-2010 Tantek Çelik. Some Rights Reserved. http://tantek.com */
-/* This style sheet is licensed under a Creative Commons License.      */
-/*             http://creativecommons.org/licenses/by/2.0              */
-
-/* Purpose: undo some of the default styling of common browsers        */
-
-:link,:visited,ins { text-decoration:none }
-nav ul,nav ol { list-style:none }
-dl,ul,ol,li,
-h1,h2,h3,h4,h5,h6,
-html,body,pre,p,blockquote,
-form,fieldset,input,label
-{ margin:0; padding:0 }
-abbr, img, object,
-a img,:link img,:visited img,
-a object,:link object,:visited object
-{ border:0 }
-address,abbr { font-style:normal }
-iframe:not(.auto-link) { display:none ! important; visibility:hidden ! important; margin-left: -10000px ! important  }
-a {
-  color: #0088cc;
-  text-decoration: none;
-}
-
 a:hover,
 a:focus {
   color: #005580;
@@ -52,12 +26,57 @@ body {
   justify-content: center;
 }
 
+body, html { 
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#starfield {
+  width:100vw;
+  height:100vh;
+  z-index: -2;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+#gamecontainer {
+  /* width: 800px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+#gameCanvas { 
+  /* display: none; */
+  /* width: 70vw;
+  height: 85vh; */
+  /* position: fixed;
+  left: 15vw;
+  right: 15vw;
+  top: 7.5vh;
+  bottom: 7.5vh; */
+  z-index: -1;
+}
+
+#info {
+  /* width: 800px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #login {
   display: none;
 }
+
 #signup {
   display: none;
 }
-#charmenu{
+
+#playing-background {
+  width: 100vw;
+  height: 100vh;
   display: none;
+  z-index: -5;
 }

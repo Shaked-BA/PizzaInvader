@@ -1,5 +1,6 @@
 #Menu {
-    position: fixed;       
+    position: fixed;   
+    z-index: 2;    
 }
 .Menu-list {
     font-size: 3rem;

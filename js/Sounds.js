@@ -1,38 +1,18 @@
-
-/*
-
-    Sounds
-
-    The sounds class is used to asynchronously load sounds and allow
-    them to be played.
-
-*/
 function Sounds() {
-
-    //  The audio context.
     this.audioContext = null;
-
-    //  The actual set of loaded sounds.
     this.sounds = {};
 }
 
 Sounds.prototype.init = function() {
-
-    //  Create the audio context, paying attention to webkit browsers.
     context = window.AudioContext || window.webkitAudioContext;
     this.audioContext = new context();
     this.mute = false;
 };
 
 Sounds.prototype.loadSound = function(name, url) {
-
-    //  Reference to ourselves for closures.
     var self = this;
-
-    //  Create an entry in the sounds object.
     this.sounds[name] = null;
 
-    //  Create an asynchronous request for the sound.
     var req = new XMLHttpRequest();
     req.open('GET', url, true);
     req.responseType = 'arraybuffer';
@@ -50,23 +30,7 @@ Sounds.prototype.loadSound = function(name, url) {
     }
 };
 
-// Sounds.prototype.playSound = function(name) {
-
-//     //  If we've not got the sound, don't bother playing it.
-//     if(!this.sounds[name] || this.mute === true) {
-//         return;
-//     }
-
-//     //  Create a sound source, set the buffer, connect to the speakers and
-//     //  play the sound.
-//     var source = this.audioContext.createBufferSource();
-//     source.buffer = this.sounds[name].buffer;
-//     source.connect(this.audioContext.destination);
-//     source.volume = 10;
-//     source.start(0);
-// };
 Sounds.prototype.playSound = function(name, volume) {
-    //  If we've not got the sound, don't bother playing it.
     if(!this.sounds[name] || this.mute === true) {
         return;
     }
@@ -77,12 +41,7 @@ Sounds.prototype.playSound = function(name, volume) {
     var gainNode = this.audioContext.createGain();
     source.connect(gainNode);
 
-    // Set the gain (volume) of the sound.
     gainNode.gain.value = volume || 1;
-
-    // Connect the gain node to the speakers and play the sound.
     gainNode.connect(this.audioContext.destination);
     source.start(0);
 };
-
-

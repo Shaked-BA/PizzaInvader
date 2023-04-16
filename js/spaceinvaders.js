@@ -74,14 +74,14 @@ function Bomb(x, y, velocity) {
     Invader's have position, type, rank/file and that's about it. 
 */
 
-function Invader(x, y, rank, file, type, photo) {
+function Invader(x, y, rank, file, invaderWidth, invaderHeight, type, photo) {
     this.x = x;
     this.y = y;
     this.rank = (20 - (rank * 5));
     this.file = file;
     this.type = type;
-    this.width = 71;
-    this.height = 62;
+    this.width = invaderWidth;
+    this.height = invaderHeight;
     this.photo = photo;
 }
 

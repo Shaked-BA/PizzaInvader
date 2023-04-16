@@ -1,27 +1,26 @@
-#signup{
+#signup {
     position: fixed;
     top: -5vh;
 }
-.container{
-    padding: 115px;
-  }
-  SELECT{
-    padding: 5px;
-  }
-  input.date{
-    width:50px;
-    padding: 5px;
-  }
-#month{
+
+.container {
+  padding: 115px;
+}
+
+SELECT {
+  padding: 5px;
+}
+
+input.date {
+  width:50px;
+  padding: 5px;
+}
+
+#month, #year, #day {
     width:min-content;
 }
-#year{
-    width: min-content;
-}
-#day{
-    width: min-content;
-}
+
 button.sign.up {
     width: 280px; /* adjust the value as needed */
     height: 42px;
-  }
+}

@@ -21,10 +21,5 @@ PauseState.prototype.draw = function(game, dt, ctx) {
     photo.src = 'images/puase.png';
     ctx.drawImage(photo, game.width / 5, game.height / 7, 500, 500);
 
-    // ctx.font="14px Arial";
-    // ctx.fillStyle = '#ffffff';
-    // ctx.textBaseline="middle";
-    // ctx.textAlign="center";
-    // ctx.fillText("Paused", game.width / 2, game.height/2);
     return;
 };

@@ -17,16 +17,17 @@ function PlayState(config, level) {
     this.bombs = [];
 }
 
-
-
 PlayState.prototype.enter = function(game) {
     //debugger;
     //  Create the ship.
     var shipImage = new Image();
     shipImage.src = game.selectedCharacterImage;
  
-
-    this.ship = new Ship(game.width / 2, game.gameBounds.bottom, game.characterWidth, game.characterHeight, shipImage);
+    console.log("bottom:" , game.gameBounds.bottom)
+    console.log("top:" , game.gameBounds.top)
+    console.log("left:" , game.gameBounds.left)
+    console.log("right:" , game.gameBounds.right)
+    this.ship = new Ship(game.width / 2, game.gameBounds.bottom - 50, game.characterWidth, game.characterHeight, shipImage);
 
     //  Setup initial state.
     this.invaderCurrentVelocity =  10;
@@ -43,25 +44,16 @@ PlayState.prototype.enter = function(game) {
     this.bombMaxVelocity = this.config.bombMaxVelocity + (levelMultiplier * this.config.bombMaxVelocity);
     this.rocketMaxFireRate = this.config.rocketMaxFireRate + 0.4 * limitLevel;
 
-    // //  Create the invaders.
-    // var ranks = this.config.invaderRanks + 0.1 * limitLevel;
-    // var files = this.config.invaderFiles + 0.2 * limitLevel;
-    // var invaders = [];
-    // for(var rank = 0; rank < ranks; rank++){
-    //     for(var file = 0; file < files; file++) {
-    //         invaders.push(new Invader(
-    //             (game.width / 2) + ((files/2 - file) * 200 / files),
-    //             (game.gameBounds.top + rank * 20),
-    //             rank, file, 'Invader'));
-    //     }
-    // }
     var invaders = [];
     var invaderPhotos = ['images/clients/character_1.png', 'images/clients/character_2.png', 'images/clients/character_3.png', 'images/clients/character_4.png'];
+    var invaderWidth = game.width * 0.08;
+    var invaderHeight = game.height * 0.11;
+
     for (var row = 0; row < 4; row++){
         for (var col = 0; col < 5; col++){
             var photo = new Image();
             photo.src = invaderPhotos[Math.floor(Math.random() * invaderPhotos.length)];
-            invaders.push(new Invader((game.width / 2) + ((2 - col) * 85), (game.gameBounds.top + row * 65), row, col, 'Invader', photo));
+            invaders.push(new Invader((0.25 * game.width) + (col * 0.1 * game.width), (0.1 * game.height * row), row, col, invaderWidth, invaderHeight, 'Invader', photo));
         }
     }
     this.invaders = invaders;
@@ -100,12 +92,12 @@ PlayState.prototype.update = function(game, dt) {
         this.ship.x = game.gameBounds.right;
     }
 
-    if(this.ship.y > game.gameBounds.bottom) {
-        this.ship.y = game.gameBounds.bottom;
+    if(this.ship.y > game.gameBounds.bottom - 50) {
+        this.ship.y = game.gameBounds.bottom - 50;
     }
 
-    if(this.ship.y < game.gameCanvas.height * 0.6) {
-        this.ship.y = game.gameCanvas.height * 0.6;
+    if(this.ship.y < game.height * 0.6) {
+        this.ship.y = game.height * 0.6;
     }
 
     //  Move each bomb.
@@ -114,7 +106,7 @@ PlayState.prototype.update = function(game, dt) {
         bomb.y += dt * bomb.velocity;
 
         //  If the rocket has gone off the screen remove it.
-        if(bomb.y > this.height) {
+        if(bomb.y > game.gameBounds.bottom) {
             this.bombs.splice(i--, 1);
         }
     }
@@ -223,7 +215,7 @@ PlayState.prototype.update = function(game, dt) {
         if(!invader) continue;
         var chance = this.bombRate * dt;
         if(chance > Math.random()) {
-            if (!this.currentBomb || this.currentBomb.y >= game.gameCanvas.height * 0.75) {
+            if (!this.currentBomb || this.currentBomb.y >= game.height * 0.75) {
                 //  Fire!
                 this.currentBomb = new Bomb(invader.x, invader.y + invader.height / 2, 
                 this.bombMinVelocity + Math.random()*(this.bombMaxVelocity - this.bombMinVelocity))
@@ -245,8 +237,8 @@ PlayState.prototype.update = function(game, dt) {
             var shipImage = new Image();
             shipImage.src = game.selectedCharacterImage;
 
-            this.ship = new Ship(game.width / 2, game.gameBounds.bottom, game.characterWidth, game.characterHeight, shipImage);
-            if (bomb = this.currentBomb && this.currentBomb.y <= game.gameCanvas.height * 0.75) {
+            this.ship = new Ship(game.width / 2, game.gameBounds.bottom - 50, game.characterWidth, game.characterHeight, shipImage);
+            if (bomb = this.currentBomb && this.currentBomb.y <= game.height * 0.75) {
                 this.currentBomb = null;
             }
         }
@@ -289,14 +281,14 @@ PlayState.prototype.draw = function(game, dt, ctx) {
     
     // //  Draw ship.
     ctx.fillStyle = '#006600';
-    // ctx.fillRect(this.ship.x - (this.ship.width / 2), this.ship.y - (this.ship.height / 2), this.ship.width, this.ship.height);
     ctx.drawImage(this.ship.photo, this.ship.x, this.ship.y, this.ship.height, this.ship.width);
 
     //  Draw invaders.
     ctx.fillStyle = '#006600';
     for(var i=0; i<this.invaders.length; i++) {
         var invader = this.invaders[i];
-        ctx.drawImage(invader.photo, invader.x - 2, invader.y - 2, invader.height, invader.width);
+        console.log(invader)
+        ctx.drawImage(invader.photo, invader.x, invader.y, invader.width, invader.height);
     }
 
     //  Draw bombs.
@@ -318,24 +310,20 @@ PlayState.prototype.draw = function(game, dt, ctx) {
         ctx.drawImage(photo, rocket.x - 2, rocket.y - 2, 20, 20);
     }
 
-    //  Draw info.
-    var textYpos = game.gameBounds.bottom + ((game.height - game.gameBounds.bottom) / 2) + 14/2;
-    ctx.font="14px Arial";
-    ctx.fillStyle = '#ffffff';
-    var info = "Lives: " + game.lives;
-    ctx.textAlign = "left";
-    ctx.fillText(info, game.gameBounds.left, textYpos);
-    info = "Score: " + game.score + ", Level: " + game.level;
-    ctx.textAlign = "right";
-    ctx.fillText(info, game.gameBounds.right, textYpos);
+    // //  Draw info.
+    // var textYpos = game.gameBounds.bottom + ((game.height - game.gameBounds.bottom) / 2) + 14/2;
+    // ctx.font="14px Arial";
+    // ctx.fillStyle = '#ffffff';
+    // var info = "Lives: " + game.lives;
+    // ctx.textAlign = "left";
+    // ctx.fillText(info, game.gameBounds.left, textYpos);
+    // info = "Score: " + game.score + ", Level: " + game.level;
+    // ctx.textAlign = "right";
+    // ctx.fillText(info, game.gameBounds.right, textYpos);
 
     //  If we're in debug mode, draw bounds.
     if(this.config.debugMode) {
-        ctx.strokeStyle = '#ff0000';
-        ctx.strokeRect(0,0,game.width, game.height);
-        ctx.strokeRect(game.gameBounds.left, game.gameBounds.top,
-            game.gameBounds.right - game.gameBounds.left,
-            game.gameBounds.bottom - game.gameBounds.top);
+        ctx.strokeStyle = '#ff0000';;
     }
 
 };
