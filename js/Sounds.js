@@ -45,19 +45,3 @@ Sounds.prototype.playSound = function(name, volume) {
     gainNode.connect(this.audioContext.destination);
     source.start(0);
 };
-
-// Sounds.prototype.playSound = function(name) {
-
-//     //  If we've not got the sound, don't bother playing it.
-//     if(!this.sounds[name] || this.mute === true) {
-//         return;
-//     }
-
-//     //  Create a sound source, set the buffer, connect to the speakers and
-//     //  play the sound.
-//     var source = this.audioContext.createBufferSource();
-//     source.buffer = this.sounds[name].buffer;
-//     source.connect(this.audioContext.destination);
-//     source.volume = 10;
-//     source.start(0);
-// };

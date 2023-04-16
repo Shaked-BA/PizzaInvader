@@ -24,14 +24,6 @@ Starfield.prototype.initialise = function(div) {
 	self.width = window.innerWidth;
 	self.height = window.innerHeight;
 
-	// window.onresize = function(event) {
-	// 	self.width = window.innerWidth;
-	// 	self.height = window.innerHeight;
-	// 	self.canvas.width = self.width;
-	// 	self.canvas.height = self.height;
-	// 	self.draw();
- 	// }
-
 	//	Create the canvas.
 	var canvas = document.createElement('canvas');
 	div.appendChild(canvas);
@@ -97,12 +89,6 @@ Starfield.prototype.draw = function() {
 
 Starfield.prototype.drawPlayingBackground = function() {
 	var ctx = this.canvas.getContext("2d");
-
-	// var photo = new Image();
-	// photo.src = 'images/background.png';
-	// photo.width = window.innerWidth;
-	// photo.height = window.innerHeight;
-	// ctx.drawImage(photo, 0,0);
 }
 
 Starfield.prototype.clear = function() {

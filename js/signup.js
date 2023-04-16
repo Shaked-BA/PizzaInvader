@@ -111,30 +111,30 @@ signupButton.addEventListener("click", function() {
 });
 
 function verify() {
-    // if (!verifyAllFields()) {
-    //     alert("All fields must be filled.");
-    //     return false;
-    // }
-    // if (!verifyPassword()) {
-    //     alert("Password must be 8-characters long and contain numbers and letters.");
-    //     return false;
-    // }
-    // if (!verifyFirstName()) {
-    //     alert("First name must not contain numbers.");
-    //     return false;
-    // }
-    // if (!verifyLastName()) {
-    //     alert("Last name must not contain numbers.");
-    //     return false;
-    // }
-    // if (!verifyEmail()) {
-    //     alert("Invalid email address.");
-    //     return false;
-    // }
-    // if (!verifyIdenticalPasswords()) {
-    //     alert("Passwords are not identical.");
-    //     return false;
-    // }
+    if (!verifyAllFields()) {
+        alert("All fields must be filled.");
+        return false;
+    }
+    if (!verifyPassword()) {
+        alert("Password must be 8-characters long and contain numbers and letters.");
+        return false;
+    }
+    if (!verifyFirstName()) {
+        alert("First name must not contain numbers.");
+        return false;
+    }
+    if (!verifyLastName()) {
+        alert("Last name must not contain numbers.");
+        return false;
+    }
+    if (!verifyEmail()) {
+        alert("Invalid email address.");
+        return false;
+    }
+    if (!verifyIdenticalPasswords()) {
+        alert("Passwords are not identical.");
+        return false;
+    }
     return true;
 }
 

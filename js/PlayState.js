@@ -17,8 +17,6 @@ function PlayState(config, level) {
     this.bombs = [];
 }
 
-
-
 PlayState.prototype.enter = function(game) {
     //debugger;
     //  Create the ship.
@@ -46,18 +44,6 @@ PlayState.prototype.enter = function(game) {
     this.bombMaxVelocity = this.config.bombMaxVelocity + (levelMultiplier * this.config.bombMaxVelocity);
     this.rocketMaxFireRate = this.config.rocketMaxFireRate + 0.4 * limitLevel;
 
-    // //  Create the invaders.
-    // var ranks = this.config.invaderRanks + 0.1 * limitLevel;
-    // var files = this.config.invaderFiles + 0.2 * limitLevel;
-    // var invaders = [];
-    // for(var rank = 0; rank < ranks; rank++){
-    //     for(var file = 0; file < files; file++) {
-    //         invaders.push(new Invader(
-    //             (game.width / 2) + ((files/2 - file) * 200 / files),
-    //             (game.gameBounds.top + rank * 20),
-    //             rank, file, 'Invader'));
-    //     }
-    // }
     var invaders = [];
     var invaderPhotos = ['images/clients/character_1.png', 'images/clients/character_2.png', 'images/clients/character_3.png', 'images/clients/character_4.png'];
     var invaderWidth = game.width * 0.08;
@@ -295,7 +281,6 @@ PlayState.prototype.draw = function(game, dt, ctx) {
     
     // //  Draw ship.
     ctx.fillStyle = '#006600';
-    // ctx.fillRect(this.ship.x - (this.ship.width / 2), this.ship.y - (this.ship.height / 2), this.ship.width, this.ship.height);
     ctx.drawImage(this.ship.photo, this.ship.x, this.ship.y, this.ship.height, this.ship.width);
 
     //  Draw invaders.
@@ -338,11 +323,7 @@ PlayState.prototype.draw = function(game, dt, ctx) {
 
     //  If we're in debug mode, draw bounds.
     if(this.config.debugMode) {
-        ctx.strokeStyle = '#ff0000';
-        // ctx.strokeRect(0,0,game.width, game.height);
-        // ctx.strokeRect(game.gameBounds.left, game.gameBounds.top,
-        //     game.gameBounds.right - game.gameBounds.left,
-        //     game.gameBounds.bottom - game.gameBounds.top);
+        ctx.strokeStyle = '#ff0000';;
     }
 
 };

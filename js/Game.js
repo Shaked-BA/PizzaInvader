@@ -63,13 +63,6 @@ Game.prototype.initialise = function(gameCanvas) {
     this.width = gameCanvas.width;
     this.height = gameCanvas.height;
 
-    //  Set the state game bounds.
-    // this.gameBounds = {
-    //     left: gameCanvas.width / 2 - this.config.gameWidth / 2,
-    //     right: gameCanvas.width / 2 + this.config.gameWidth / 3 + 70,
-    //     top: gameCanvas.height / 2 - this.config.gameHeight / 2,
-    //     bottom: gameCanvas.height / 2 + this.config.gameHeight / 2,
-    // };
     this.gameBounds = {
         left: 0,
         right: 0.85 * this.width,
