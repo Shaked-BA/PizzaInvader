@@ -2,19 +2,19 @@ function Game() {
 
     //  Set the initial config.
     this.config = {
-        bombRate: 0.5,
-        bombMinVelocity: 50,
-        bombMaxVelocity: 50,
+        invaderBulletRate: 0.5,
+        invaderBulletMinVelocity: 50,
+        invaderBulletMaxVelocity: 50,
         invaderInitialVelocity: 25,
         invaderAcceleration: 0,
         invaderDropDistance: 20,
-        rocketVelocity: 120,
-        rocketMaxFireRate: 2,
+        playerBulletVelocity: 120,
+        playerBulletMaxFireRate: 2,
         fps: 50,
         debugMode: false,
         invaderRanks: 2,
         invaderFiles: 10,
-        shipSpeed: 120,
+        playerSpeed: 120,
         levelDifficultyMultiplier: 0.2,
         pointsPerInvader: 5,
         limitLevelIncrease: 25
@@ -28,13 +28,33 @@ function Game() {
     this.intervalId = 0;
     this.score = 0;
     this.level = 1;
-    this.characterImages = {
-        'rosetta': 'images/characters/rosetta.png',
-        'alfredo': 'images/characters/alfredo.png',
-        'gina': 'images/characters/gina.png', 
-        'billie': 'images/characters/billie.png',
-        'luna': 'images/characters/luna.png'
-    };
+    this.characters = {
+        'rosetta': {
+            characterWidth: 76,
+            characterHeight: 60,
+            image: 'images/characters/rosetta.png'
+        },
+        'alfredo': {
+            characterWidth: 67,
+            characterHeight: 71,
+            image: 'images/characters/alfredo.png'
+        },
+        'gina': {
+            characterWidth: 67,
+            characterHeight: 71,
+            image: 'images/characters/gina.png'
+        },
+        'billie': {
+            characterWidth: 76,
+            characterHeight: 50,
+            image: 'images/characters/billie.png'
+        },
+        'luna': {
+            characterWidth: 78,
+            characterHeight: 74,
+            image: 'images/characters/luna.png'
+        },
+    }
     
     // logged in players dictionary
     this.players = {"p": "testuser"};

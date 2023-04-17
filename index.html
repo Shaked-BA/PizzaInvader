@@ -2,7 +2,7 @@
 <html>
   <head>
       <title>PAZZA!</title>
-      <link rel="icon" type="image/x-icon" href="/images/pizza_stars.ico" sizes="32x32">
+      <link rel="icon" type="image/x-icon" href="/images/pizza_slice.ico" sizes="32x32">
       <link rel="preload" as="image" href="/images/background.png">
       <link rel="stylesheet" type="text/css" href="css/core.css">
       <link rel="stylesheet" type="text/css" href="css/menu.css">
@@ -106,14 +106,14 @@
                   <div class="bg-inner"></div>
                 </div>
               </div>
-              <form class = "container">
+              <form class= "container">
                 <label >Birthday:</label>
-                <SELECT id ="year" name = "yyyy" onchange="change_year(this)">
-                </SELECT>
-                <SELECT  id ="month" name = "mm" onchange="change_month(this)">
-                </SELECT>
-                <SELECT id ="day" name = "dd" >
-                </SELECT>
+                <select id="year" name= "yyyy" onchange="change_year(this)">
+                </select>
+                <select  id="month" name= "mm" onchange="change_month(this)">
+                </select>
+                <select id="day" name= "dd" >
+                </select>
               </form>                
             <button id="signup-btn" type="submit" class="sign up btn block-cube block-cube-hover">
               <div class="bg-top">
@@ -190,19 +190,19 @@
                 </div></button></form>
     </div>
     <div id="character-menu">
-        <div id="rosetta" class="highlight character-option">
+        <div id="rosetta" class="highlight character-option" onclick="onCharacterClick(event)">
           <img src="images/characters/rosetta.png"/>
         </div>
-        <div id="alfredo" class="character-option">
+        <div id="alfredo" class="character-option" onclick="onCharacterClick(event)">
           <img src="images/characters/alfredo.png"/>            
         </div>
-        <div id="gina" class="character-option">
+        <div id="gina" class="character-option" onclick="onCharacterClick(event)">
           <img src="images/characters/gina.png"/>
         </div>
-        <div id="billie" class="character-option-billie">
+        <div id="billie" class="character-option character-option-billie" onclick="onCharacterClick(event)">
           <img src="images/characters/billie.png"/>
         </div>
-        <div id="luna" class="character-option-luna">
+        <div id="luna" class="character-option character-option-luna" onclick="onCharacterClick(event)">
           <img src="images/characters/luna.png"/>
         </div>
     </div>
@@ -219,7 +219,7 @@
       <source src="sounds/flipflop.wav" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-    <div id="starfield">
+    <div id="pizza-background">
       <img src="images/background.png" id="playing-background">
     </div>
     <!-- <div id="gamecontainer"> -->
@@ -228,36 +228,35 @@
     <!-- </div> -->
     <!-- <div id="info">
       <p>Move with arrow keys or swipe, fire with the space bar or touch. The invaders get faster and drop
-        more bombs as you complete each level!</p>
+        more invaderBullets as you complete each level!</p>
         <p><a id="muteLink" href="#" onclick="toggleMute()">mute</a></p>
       </div> -->
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/Sounds.js"></script>
-  <script src="js/characterMenu.js"></script>
   <script src="js/GameOverState.js"></script>
   <script src="js/LevelIntroState.js"></script>
   <script src="js/PauseState.js"></script>
   <script src="js/PlayState.js"></script>
   <script src="js/WelcomeState.js"></script>
-  <script src="js/starfield.js"></script>
-  <script src="js/signup.js"></script>
-  <script src="js/spaceinvaders.js"></script>
+  <script src="js/PizzaBackground.js"></script>
+  <script src="js/Signup.js"></script>
+  <script src="js/PizzaInvaders.js"></script>
   <script src="js/Game.js"></script>
-  <script src="js/login.js"></script>
-  <script src="js/about.js"></script>
-  <script src="js/characterMenu.js"></script>
+  <script src="js/Login.js"></script>
+  <script src="js/About.js"></script>
+  <script src="js/CharacterMenu.js"></script>
   <script>
       const setVisibility = (divId, display) => {
           const element = document.getElementById(divId);
           element.style.display = display;
       }
 
-      //  Create the starfield.
-      var container = document.getElementById('starfield');
-      var starfield = new Starfield();
-      starfield.initialise(container);
-      starfield.start();
+      //  Create the pizzaBackground.
+      var container = document.getElementById('pizza-background');
+      var pizzaBackground = new PizzaBackground();
+      pizzaBackground.initialise(container);
+      pizzaBackground.start();
       
       //  Setup the canvas.
       var canvas = document.getElementById("gameCanvas");

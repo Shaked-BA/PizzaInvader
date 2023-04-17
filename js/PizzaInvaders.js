@@ -1,5 +1,5 @@
 /*
-  spaceinvaders.js
+  PizzaInvaders.js
 
   the core logic for the space invaders game.
 
@@ -15,7 +15,7 @@
     Call 'initialise' before 'start' to set the canvas the game
     will draw to.
 
-    Call 'moveShip' or 'shipFire' to control the ship.
+    Call 'movePlayer' or 'playerFire' to control the player.
 
     Listen for 'gameWon' or 'gameLost' events to handle the game
     ending.
@@ -31,12 +31,12 @@ var KEY_P = 80;
 
 /*
  
-  Ship
+  Player
 
-  The ship has a position and that's about it.
+  The player has a position and that's about it.
 
 */
-function Ship(x, y, width, height, photo) {
+function Player(x, y, width, height, photo) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -45,24 +45,24 @@ function Ship(x, y, width, height, photo) {
 }
 
 /*
-    Rocket
+    PlayerBullet
 
-    Fired by the ship, they've got a position, velocity and state.
+    Fired by the player, they've got a position, velocity and state.
 
     */
-function Rocket(x, y, velocity) {
+function PlayerBullet(x, y, velocity) {
     this.x = x;
     this.y = y;
     this.velocity = velocity;
 }
 
 /*
-    Bomb
+    InvaderBullet
 
     Dropped by invaders, they've got position, velocity.
 
 */
-function Bomb(x, y, velocity) {
+function InvaderBullet(x, y, velocity) {
     this.x = x;
     this.y = y;
     this.velocity = velocity;
@@ -83,22 +83,4 @@ function Invader(x, y, rank, file, invaderWidth, invaderHeight, type, photo) {
     this.width = invaderWidth;
     this.height = invaderHeight;
     this.photo = photo;
-}
-
-/*
-    Game State
-
-    A Game State is simply an update and draw proc.
-    When a game is in the state, the update and draw procs are
-    called, with a dt value (dt is delta time, i.e. the number)
-    of seconds to update or draw).
-
-*/
-function GameState(updateProc, drawProc, keyDown, keyUp, enter, leave) {
-    this.updateProc = updateProc;
-    this.drawProc = drawProc;
-    this.keyDown = keyDown;
-    this.keyUp = keyUp;
-    this.enter = enter;
-    this.leave = leave;
 }
