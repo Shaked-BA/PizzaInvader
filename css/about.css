@@ -10,7 +10,7 @@
     background-image: url("/images/about_back.png");
     background-size: 100% 100%;
     padding: 2vh;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 50%
   }
@@ -55,7 +55,34 @@
     cursor: pointer;
   }
   #myModal p{
-    background-color: rgba(179, 185, 190, 0.559);
+    background-color: rgba(0, 0, 0, 0.639);
     width: 45vw;
-    height: 15vh;
+    height: 25vh;
+    font-family: "Fantasy", Papyrus;
+    color: rgb(240, 248, 255);
+    text-align: center;
+    font-size: larger;
+  }
+
+  #myModal h1{
+    background-color: rgba(0, 0, 0, 0.603);
+    width: 25vw;
+    height: 9vh;
+    font-size:x-large;
+    color: rgb(240, 248, 255);
+    text-align: center;
+    font-family: "Fantasy", Papyrus;
+    /* padding-left: 30%; */
+    margin-left: 20%;
+  }
+  #myModal h5{
+    background-color: rgba(0, 0, 0, 0.603);
+    width: 30vw;
+    height: 9vh;
+    font-size:x-small;
+    color: rgb(240, 248, 255);
+    text-align: center;
+    font-family: "Fantasy", Papyrus;
+    /* padding-left: 30%; */
+    margin-left: 20%;
   }
