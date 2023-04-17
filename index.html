@@ -7,6 +7,7 @@
       <link rel="stylesheet" type="text/css" href="css/core.css">
       <link rel="stylesheet" type="text/css" href="css/menu.css">
       <link rel="stylesheet" type="text/css" href="css/login.css">
+      <link rel="stylesheet" type="text/css" href="css/about.css">
       <link rel="stylesheet" type="text/css" href="css/signup.css">
       <link rel="stylesheet" type="text/css" href="css/characterMenu.css">
       <link rel="stylesheet" type="text/css" href="css/typeography.css">
@@ -30,7 +31,7 @@
                   <span class="Mask"><span>Login</span></span>
                   <span class="Mask"><span>Login</span></span>
                 </li>
-                <li class="Menu-list-item" data-offset="12" onclick>
+                <li class="Menu-list-item" data-offset="12" onclick="showModal()">
                   About
                   <span class="Mask"><span>About</span></span>
                   <span class="Mask"><span>About</span></span>
@@ -128,6 +129,28 @@
                 Sign Up
               </div></button></form>
     </div>
+    <!-- <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>FLIP FLOP FLUPIDUPI DA</p>
+      </div>
+    </div> -->
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+        <div class="modal-text">
+          <h1 id="about-title">About "Pizza Invaders"</h1>
+          <p>
+            While Building this game we were having trouble (COMPLETE THE PROBLEMS WE HAD),
+            We also implemented, using HTML5, jquery, JS and CSS, the option to move the character diagonal.
+            we added sounds to everything, including bacgkround music and win or lose game sounds.
+            All the characters, enemis, logo, backgrounds, shootings and icon is desigend by us using "Midjourney" v5
+          </p>
+          <h5>Authors: Shaked Ben-Aharon 209488154 & Omer Cohen 20611991</h5>
+        </div>
+      </div>
+    </div>
+    <div id="modalOverlay"></div>
     <div id="login">
           <form class="form" autocomplete="off">
               <div class="control block-cube block-input">
@@ -185,7 +208,11 @@
     </div>
 
     <audio id="menu-audio-player" autoplay loop>
-      <source src="sounds/TarantellaNapolitana.wav" type="audio/mpeg">
+      <source src="sounds/menu-song.wav" type="audio/mpeg">
+      <script>
+        var menuAudioPlayer = document.getElementById("menu-audio-player");
+        menuAudioPlayer.volume = 0.2;
+      </script>
       Your browser does not support the audio element.
     </audio>
     <audio id="game-audio-player" loop>
@@ -218,6 +245,7 @@
   <script src="js/spaceinvaders.js"></script>
   <script src="js/Game.js"></script>
   <script src="js/login.js"></script>
+  <script src="js/about.js"></script>
   <script src="js/characterMenu.js"></script>
   <script>
       const setVisibility = (divId, display) => {
