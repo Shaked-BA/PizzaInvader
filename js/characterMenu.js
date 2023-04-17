@@ -3,7 +3,7 @@ var characters = document.querySelectorAll('.character-option')
 
 characters.forEach(function (element) {
     element.addEventListener("mouseenter", function () {onCharacterMouseEnter(element);});
-    element.addEventListener("click", onCharacterClick);
+    element.addEventListener("click", function (event) {onCharacterClick(event);});
 });
 
 var onCharacterMouseEnter = function(element) {
