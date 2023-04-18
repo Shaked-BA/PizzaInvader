@@ -27,6 +27,34 @@
 	transform: skewY(-10deg);
 	z-index: -1;
 }
+.character-option-billie {
+	width: 15vw;
+	height: 55vh;
+	background: rgb(149, 1, 1);
+	background-size: auto 100%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: inline-block;
+	margin: 0 0.5rem;
+	filter: grayscale(1) opacity(0.1) contrast(200%);
+	transition: 0.5s;
+	transform: skewY(-10deg);
+	z-index: -1;
+}
+.character-option-luna {
+	width: 15vw;
+	height: 55vh;
+	background: red;
+	background-size: auto 100%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: inline-block;
+	margin: 0 0.5rem;
+	filter: grayscale(1) opacity(0.1) contrast(200%);
+	transition: 0.5s;
+	transform: skewY(-10deg);
+	z-index: -1;
+}
 
 .character-option img {
     margin-top: 5vw;
@@ -70,18 +98,18 @@
 .character-option:nth-child(3) {
     background-position: 50% 20%;
 }
-.character-option:nth-child(4) {
+.character-option-billie:nth-child(4) {
     background-position: 60% 20%;
 }
-.character-option:nth-child(5) {
+.character-option-luna:nth-child(5) {
     background-position: 50% 10%;
 }
 
 .character-option:nth-child(1):after,
 .character-option:nth-child(2):after,
 .character-option:nth-child(3):after,
-.character-option:nth-child(4):after,
-.character-option:nth-child(5):after {
+.character-option-billie:nth-child(4):after,
+.character-option-luna:nth-child(5):after {
 content: "NAME";
 position: absolute;
 bottom: 0;
@@ -102,9 +130,9 @@ content: "ALFREDO";
 .character-option:nth-child(3):after {
 content: "GINA";
 }
-.character-option:nth-child(4):after {
+.character-option-billie:nth-child(4):after {
 content: "BILLIE";
 }
-.character-option:nth-child(5):after {
+.character-option-luna:nth-child(5):after {
 content: "LUNA";
 }

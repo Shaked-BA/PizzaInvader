@@ -51,8 +51,9 @@ PlayState.prototype.enter = function(game) {
 
     for (var row = 0; row < 4; row++){
         for (var col = 0; col < 5; col++){
-            var photo = new Image();
-            photo.src = invaderPhotos[Math.floor(Math.random() * invaderPhotos.length)];
+            var photo = new Image()
+            // photo.src = invaderPhotos[Math.floor(Math.random() * invaderPhotos.length)];
+            photo.src = invaderPhotos[row];
             invaders.push(new Invader((0.25 * game.width) + (col * 0.1 * game.width), (0.1 * game.height * row), row, col, invaderWidth, invaderHeight, 'Invader', photo));
         }
     }
