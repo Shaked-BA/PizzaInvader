@@ -1,9 +1,9 @@
 // const characterSelect = document.getElementById('character-menu');
-var characters = document.querySelectorAll('.character-option, .character-option-billie, .character-option-luna')
+var characters = document.querySelectorAll('.character-option')
 
 characters.forEach(function (element) {
-	element.addEventListener("mouseenter", function () {onCharacterMouseEnter(element)});
-    element.addEventListener("click", onCharacterClick)
+    element.addEventListener("mouseenter", function () {onCharacterMouseEnter(element);});
+    element.addEventListener("click", function (event) {onCharacterClick(event);});
 });
 
 var onCharacterMouseEnter = function(element) {
@@ -13,25 +13,15 @@ var onCharacterMouseEnter = function(element) {
 };
 
 var onCharacterClick = function(event) {
-    //ship sizes acording to id
-    game.characterWidth = 67;
-    game.characterHeight = 71;
-    if(event.currentTarget.id === "rosetta"){
-        game.characterWidth = 76;
-        game.characterHeight = 60;
-    };
-    if(event.currentTarget.id === "luna"){
-        game.characterWidth = 78;
-        game.characterHeight = 74;
-    };
-    if(event.currentTarget.id === "billie"){
-        game.characterWidth = 76;
-        game.characterHeight = 50;
-    };
-    game.selectedCharacterImage = game.characterImages[event.currentTarget.id];
+    //Player sizes acording to id
+    var character = game.characters[event.currentTarget.id];
+    game.characterWidth = character.characterWidth;
+    game.characterHeight = character.characterHeight;
+    game.selectedCharacterImage = character.image;
+
     game.moveToState(new LevelIntroState(game.level));
     // setVisibility('gameCanvas', 'block');
-    starfield.onCharacterSelect();
+    pizzaBackground.onCharacterSelect();
     setVisibility('character-menu', 'none');
     setVisibility('playing-background', 'inline-block')
 };
