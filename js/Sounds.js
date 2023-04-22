@@ -35,7 +35,6 @@ Sounds.prototype.playSound = function(name, volume) {
         return;
     }
 
-    //  Create a sound source and connect it to a gain node.
     var source = this.audioContext.createBufferSource();
     source.buffer = this.sounds[name].buffer;
     var gainNode = this.audioContext.createGain();

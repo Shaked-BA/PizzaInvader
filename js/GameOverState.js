@@ -8,7 +8,6 @@ GameOverState.prototype.update = function(game, dt) {
 
 GameOverState.prototype.draw = function(game, dt, ctx) {
 
-    //  Clear the background.
     ctx.clearRect(0, 0, game.width, game.height);
 
     ctx.font="30px Arial";
@@ -24,7 +23,6 @@ GameOverState.prototype.draw = function(game, dt, ctx) {
 
 GameOverState.prototype.keyDown = function(game, keyCode) {
     if(keyCode == KEY_SPACE) {
-        //  Space restarts the game.
         game.lives = 3;
         game.score = 0;
         game.level = 1;

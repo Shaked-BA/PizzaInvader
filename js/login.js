@@ -1,15 +1,12 @@
-// Get the button element from the DOM
 var loginButton = document.getElementById("login-btn");
 
 loginButton.addEventListener("click", onLogin);
 
-// Add an event listener to the button
 function onLogin() {
     if (!validate()) {
         alert("Wrong username or password.");
         return;
     }
-    // Successful login leads to character menu.
     setVisibility('login', 'none');
     setVisibility('character-menu', 'flex');
 };

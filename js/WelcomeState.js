@@ -4,8 +4,6 @@ function WelcomeState() {
 }
 
 WelcomeState.prototype.enter = function(game) {
-
-    // Create and load the sounds.
     game.sounds = new Sounds();
     game.sounds.init();
     game.sounds.loadSound('shoot', 'sounds/SUIII.wav');
@@ -20,38 +18,33 @@ WelcomeState.prototype.enter = function(game) {
 
 WelcomeState.prototype.update = function (game, dt) {
 
-
 };
 
 WelcomeState.prototype.draw = function(game, dt, ctx) {
 
-    //  Clear the background.
     ctx.clearRect(0, 0, game.width, game.height);
     
     var $menu = $('.Menu'),
-    $item = $('.Menu-list-item'),
-    w = $(window).width(), //window width
-    h = $(window).height(); //window heights
+    $item = $('.menu-item'),
+    w = $(window).width(),
+    h = $(window).height();
 
     $(window).on('mousemove', function(e) {
-    var offsetX = 0.5 - e.pageX / w, //cursor position X
-        offsetY = 0.5 - e.pageY / h, //cursor position Y
-        dy = e.pageY - h / 2, //@h/2 = center of poster
-        dx = e.pageX - w / 2, //@w/2 = center of poster
-        theta = Math.atan2(dy, dx), //angle between cursor and center of poster in RAD
-        angle = theta * 180 / Math.PI - 90, //convert rad in degrees
+    var offsetX = 0.5 - e.pageX / w,
+        offsetY = 0.5 - e.pageY / h,
+        dy = e.pageY - h / 2,
+        dx = e.pageX - w / 2,
+        theta = Math.atan2(dy, dx),
+        angle = theta * 180 / Math.PI - 90,
         offsetPoster = $menu.data('offset'),
-        transformPoster = 'translate3d(0, ' + -offsetX * offsetPoster + 'px, 0) rotateX(' + (-offsetY * offsetPoster) + 'deg) rotateY(' + (offsetX * (offsetPoster * 2)) + 'deg)'; //poster transform
+        transformPoster = 'translate3d(0, ' + -offsetX * offsetPoster + 'px, 0) rotateX(' + (-offsetY * offsetPoster) + 'deg) rotateY(' + (offsetX * (offsetPoster * 2)) + 'deg)';
 
-    //get angle between 0-360
     if (angle < 0) {
         angle = angle + 360;
     }
 
-    //poster transform
     $menu.css('transform', transformPoster);
 
-    //parallax for each layer
     $item.each(function() {
         var $this = $(this),
             offsetLayer = $this.data('offset') || 0,

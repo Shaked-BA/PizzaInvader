@@ -1,9 +1,3 @@
-/*  
-    Level Intro State
-
-    The Level Intro state shows a 'Level X' message and
-    a countdown for the level.
-*/
 function LevelIntroState(level) {
     this.level = level;
     this.countdownMessage = "3";
@@ -11,9 +5,8 @@ function LevelIntroState(level) {
 
 LevelIntroState.prototype.update = function(game, dt) {
 
-    //  Update the countdown.
     if(this.countdown === undefined) {
-        this.countdown = 3; // countdown from 3 secs
+        this.countdown = 3;
     }
     this.countdown -= dt;
 
@@ -24,7 +17,6 @@ LevelIntroState.prototype.update = function(game, dt) {
         this.countdownMessage = "1"; 
     } 
     if(this.countdown <= 0) {
-        //  Move to the next level, popping this state.
         game.moveToState(new PlayState(game.config, this.level));
     }
 
@@ -32,7 +24,6 @@ LevelIntroState.prototype.update = function(game, dt) {
 
 LevelIntroState.prototype.draw = function(game, dt, ctx) {
 
-    //  Clear the background.
     ctx.clearRect(0, 0, game.width, game.height);
 
     ctx.font="36px Arial";

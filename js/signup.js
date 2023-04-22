@@ -1,8 +1,8 @@
-var Days = [31,28,31,30,31,30,31,31,30,31,30,31];// index => month [0-11]
+var Days = [31,28,31,30,31,30,31,31,30,31,30,31];
 $(document).ready(function(){
     var option = '<option value="day">Day</option>';
     var selectedDay="day";
-    for (var i=1;i <= Days[0];i++){ //add option days
+    for (var i=1;i <= Days[0];i++){
         option += '<option value="'+ i + '">' + i + '</option>';
     }
     $('#day').append(option);
@@ -19,7 +19,7 @@ $(document).ready(function(){
     var d = new Date();
     var option = '<option value="year">Year</option>';
     selectedYear ="year";
-    for (var i=1930;i <= d.getFullYear();i++){// years start i
+    for (var i=1930;i <= d.getFullYear();i++){
         option += '<option value="'+ i + '">' + i + '</option>';
     }
     $('#year').append(option);
@@ -54,7 +54,7 @@ function change_year(select)
 			       var val = $(day).val();
 			       $(day).empty();
 			       var option = '<option value="day">day</option>';
-			       for (var i=1;i <= Days[1];i++){ //add option days
+			       for (var i=1;i <= Days[1];i++){
 				         option += '<option value="'+ i + '">' + i + '</option>';
              }
 			       $(day).append(option);
@@ -72,7 +72,7 @@ function change_month(select) {
     $(day).empty();
     var option = '<option value="day">day</option>';
     var month = parseInt( $(select).val() ) - 1;
-    for (var i=1;i <= Days[ month ];i++){ //add option days
+    for (var i=1;i <= Days[ month ];i++){
         option += '<option value="'+ i + '">' + i + '</option>';
     }
     $(day).append(option);
@@ -83,10 +83,8 @@ function change_month(select) {
     $(day).val(val);
 }
 
-// Get the button element from the DOM
 var signupButton = document.getElementById("signup-btn");
 
-// Add an event listener to the button
 signupButton.addEventListener("click", function() {
     if (!verify()) {
         return;
@@ -95,9 +93,6 @@ signupButton.addEventListener("click", function() {
     var p = document.getElementById("password").value;
     game.players[u] = p;
 
-    // Successful sign up leads to character menu.
-    
-    // game.moveToState(new LevelIntroState(game.level));
     setVisibility('signup', 'none');
     setVisibility('character-menu', 'flex');
 });
@@ -130,7 +125,6 @@ function verify() {
     return true;
 }
 
-// Verify all fields have been filled.
 function verifyAllFields() {
     var fn = document.getElementById("firstName").value;
     var ln = document.getElementById("lastName").value;
@@ -152,7 +146,6 @@ function verifyAllFields() {
     return true;
 };
 
-// Check if the password 8-characters long and contains numbers and letters.
 function verifyPassword() {
     var p = document.getElementById("password").value;
 
@@ -162,7 +155,6 @@ function verifyPassword() {
     return true;
 };
 
-// Check if the first name is not empty and does not contain numbers.
 function verifyFirstName() {
     var fn = document.getElementById("firstName").value;
 
@@ -172,7 +164,6 @@ function verifyFirstName() {
     return true;
 };
 
-// Check if the last name is not empty and does not contain numbers.
 function verifyLastName() {
     var ln = document.getElementById("lastName").value;
 
@@ -182,7 +173,6 @@ function verifyLastName() {
     return true;
 };
 
-// Verify email.
 function verifyEmail() {
     var e = document.getElementById("email").value;
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e)) {
@@ -191,7 +181,6 @@ function verifyEmail() {
     return false;
 };
 
-// Check if the passwords are identical.
 function verifyIdenticalPasswords() {
     var p = document.getElementById("password").value;
     var rp = document.getElementById("repassword").value;

@@ -52,17 +52,6 @@
     box-shadow: 0 25px 50px black;
 }
 
-    /* .character-option {
-        width: 75vw;
-        max-width: 75vw;
-        height: 20vh;
-        display: block;
-        margin: 1rem 0;
-        background-size: 100% auto;
-        background-position: 50% 0%;
-        transform: skewX(-10deg);
-    } */
-
 .character-option:nth-child(2) {
     background-position: 50% 10%;
 }

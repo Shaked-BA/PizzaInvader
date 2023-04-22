@@ -1,9 +1,3 @@
-/*
-	PizzaBackground lets you take a div and turn it into a pizzaBackground.
-
-*/
-
-//	Define the pizzaBackground class.
 function PizzaBackground() {
 	this.fps = 30;
 	this.canvas = null;
@@ -16,16 +10,13 @@ function PizzaBackground() {
 	this.intervalId = 0;
 }
 
-//	The main function - initialises the pizzaBackground.
 PizzaBackground.prototype.initialise = function(div) {
 	var self = this;
 
-	//	Store the div.
 	this.containerDiv = div;
 	self.width = window.innerWidth;
 	self.height = window.innerHeight;
 
-	//	Create the canvas.
 	var canvas = document.createElement('canvas');
 	div.appendChild(canvas);
 	this.canvas = canvas;
@@ -35,7 +26,6 @@ PizzaBackground.prototype.initialise = function(div) {
 
 PizzaBackground.prototype.start = function() {
 
-	//	Create the pizzas.
 	var pizzas = [];
 	for(var i=0; i<this.pizzaAmount; i++) {
 		pizzas[i] = new Pizza(Math.random()*this.width, Math.random()*this.height,
@@ -44,7 +34,6 @@ PizzaBackground.prototype.start = function() {
 	this.pizzas = pizzas;
 
 	var self = this;
-	//	Start the timer.
 	this.intervalId = setInterval(function() {
 		self.update();
 		self.draw();	
@@ -61,7 +50,6 @@ PizzaBackground.prototype.update = function() {
 	for(var i=0; i<this.pizzas.length; i++) {
 		var pizza = this.pizzas[i];
 		pizza.y += dt * pizza.velocity;
-		//	If the pizza has moved from the bottom of the screen, spawn it at the top.
 		if(pizza.y > this.height) {
 			this.pizzas[i] = new Pizza(Math.random()*this.width, 0, Math.random()*50+1, 
 		 	(Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity);
@@ -71,14 +59,11 @@ PizzaBackground.prototype.update = function() {
 
 PizzaBackground.prototype.draw = function() {
 
-	//	Get the drawing context.
 	var ctx = this.canvas.getContext("2d");
 
-	//	Draw the background.
  	ctx.fillStyle = '#000000';
 	ctx.fillRect(0, 0, this.width, this.height);
 
-	//	Draw photos.
 	var photos = ['images/pizzas/half_pizza.png', 'images/pizzas/pizza_slice.png', 'images/pizzas/pizza_slice_2.png', 'images/pizzas/pizza_slice_3.png'];
 	for(var i=0; i<this.pizzas.length;i++) {
 		var photo = new Image();
