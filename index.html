@@ -1,236 +1,239 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>PAZZA!</title>
-      <link rel="icon" type="image/x-icon" href="/images/pizza_slice.ico" sizes="32x32">
-      <link rel="preload" as="image" href="/images/background.png">
-      <link rel="stylesheet" type="text/css" href="css/core.css">
-      <link rel="stylesheet" type="text/css" href="css/menu.css">
-      <link rel="stylesheet" type="text/css" href="css/login.css">
-      <link rel="stylesheet" type="text/css" href="css/about.css">
-      <link rel="stylesheet" type="text/css" href="css/signup.css">
-      <link rel="stylesheet" type="text/css" href="css/characterMenu.css">
-      <link rel="stylesheet" type="text/css" href="css/typeography.css">
-      <!-- <style>
-          /* Styling needed for a fullscreen canvas and no scrollbars. */
-      </style> -->
+    <title>PAZZA!</title>
+    <link rel="preload" as="image" href="/images/background.png">
+    <link rel="stylesheet" type="text/css" href="css/core.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/about.css">
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
+    <link rel="stylesheet" type="text/css" href="css/characterMenu.css">
+    <link rel="stylesheet" type="text/css" href="css/typeography.css">
+    <link rel="icon" type="image/x-icon" href="/images/pizza_slice.ico" sizes="32x32">
   </head>
-          
+      
   <body>
-    <!-- <div class="mainContainer"></div> -->
-    <div id="Menu">
-          <img src="images/logo.png" alt="Image" height="300" width="300">
-          <ul class="Menu-list" data-offset="10">
-              <li class="Menu-list-item" data-offset="20" onclick="setVisibility('Menu', 'none');setVisibility('signup', 'block');">
-                  Sign up
-                  <span class="Mask"><span>Sign up</span></span>
-                  <span class="Mask"><span>Sign up</span></span>
-                </li>
-                <li class="Menu-list-item" data-offset="16" onclick="setVisibility('Menu', 'none');setVisibility('login', 'block');">
-                  Login
-                  <span class="Mask"><span>Login</span></span>
-                  <span class="Mask"><span>Login</span></span>
-                </li>
-                <li class="Menu-list-item" data-offset="12" onclick="showModal()">
-                  About
-                  <span class="Mask"><span>About</span></span>
-                  <span class="Mask"><span>About</span></span>
-                </li>
-              </ul>
-    </div>
-    <div id="signup">
-            <form class="form" autocomplete="off">
-            <div class="control block-cube block-input">
-              <input id="susername" name="username" type="text" placeholder="Username" /><div class="bg-top">
-                <div class="bg-inner"></div>
-              </div>
-              <div class="bg-right">
-                <div class="bg-inner"></div>
-              </div>
-              <div class="bg">
-                <div class="bg-inner"></div>
-              </div>
-            </div>
-            <div class="control block-cube block-input">
-              <input id="password" name="password" type="password" placeholder="Password"/><div class="bg-top">
-                <div class="bg-inner"></div>
-              </div>
-              <div class="bg-right">
-                <div class="bg-inner"></div>
-              </div>
-              <div class="bg">
-                <div class="bg-inner"></div>
-              </div>
-            </div>
-            <div class="control block-cube block-input">
-              <input id="repassword" name="repassword" type="password" placeholder="Verify Password"/><div class="bg-top">
-                <div class="bg-inner"></div>
-              </div>
-                <div class="bg-right">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg">
-                  <div class="bg-inner"></div>
-                </div>
-              </div>
-              <div class="control block-cube block-input">
-                <input id="firstName" name="firstName" type="text" placeholder="First Name"/><div class="bg-top">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg-right">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg">
-                  <div class="bg-inner"></div>
-                </div>
-              </div>
-              <div class="control block-cube block-input">
-                <input id="lastName" name="lastName" type="text" placeholder="Last Name"/><div class="bg-top">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg-right">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg">
-                  <div class="bg-inner"></div>
-                </div>
-              </div>
-              <div class="control block-cube block-input">
-                <input id="email" name="email" type="text" placeholder="Email"/><div class="bg-top">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg-right">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg">
-                  <div class="bg-inner"></div>
-                </div>
-              </div>
-              <form class= "container">
-                <label >Birthday:</label>
-                <select id="year" name= "yyyy" onchange="change_year(this)">
-                </select>
-                <select  id="month" name= "mm" onchange="change_month(this)">
-                </select>
-                <select id="day" name= "dd" >
-                </select>
-              </form>                
-            <button id="signup-btn" type="submit" class="sign up btn block-cube block-cube-hover">
-              <div class="bg-top">
-                <div class="bg-inner"></div>
-              </div>
-              <div class="bg-right">
-                <div class="bg-inner"></div>
-              </div>
-              <div class="bg">
-                <div class="bg-inner"></div>
-              </div>
-              <div class="text">
-                Sign Up
-              </div></button></form>
-    </div>
-    <!-- <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p>FLIP FLOP FLUPIDUPI DA</p>
+    <div class="flex-column">
+      <header id="header">
+        <img src="images/logo.png" alt="Image" height="300" width="300">
+        <h1>PAZZA!</h1>
+      </header>
+
+      <div id="Menu">
+        <ul class="Menu-list" data-offset="10">
+          <li class="Menu-list-item" data-offset="20" onclick="setVisibility('Menu', 'none');setVisibility('header', 'none');setVisibility('signup', 'block');">
+            Sign up
+            <span class="Mask"><span>Sign up</span></span>
+            <span class="Mask"><span>Sign up</span></span>
+          </li>
+          <li class="Menu-list-item" data-offset="16" onclick="setVisibility('Menu', 'none');setVisibility('header', 'none');setVisibility('login', 'block');">
+            Login
+            <span class="Mask"><span>Login</span></span>
+            <span class="Mask"><span>Login</span></span>
+          </li>
+          <li class="Menu-list-item" data-offset="12" onclick="showModal()">
+            About
+            <span class="Mask"><span>About</span></span>
+            <span class="Mask"><span>About</span></span>
+          </li>
+        </ul>
       </div>
-    </div> -->
-    <div id="myModal" class="modal">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <div class="modal-content">
-        <div class="modal-text">
-          <h1 id="about-title">About "Pizza Invaders"</h1>
-          <p>
-            While Building this game we were having trouble (COMPLETE THE PROBLEMS WE HAD),
-            We also implemented, using HTML5, jquery, JS and CSS, the option to move the character diagonal.
-            we added sounds to everything, including bacgkround music and win or lose game sounds.
-            All the characters, enemis, logo, backgrounds, shootings and icon is desigend by us using "Midjourney" v5
-          </p>
-          <h5>Authors: Shaked Ben-Aharon 209488154 & Omer Cohen 20611991</h5>
-        </div>
-      </div>
-    </div>
-    <div id="modalOverlay"></div>
-    <div id="login">
-          <form class="form" autocomplete="off">
-              <div class="control block-cube block-input">
-                <input id="username" name="username" type="text" placeholder="Username" /><div class="bg-top">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg-right">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg">
-                  <div class="bg-inner"></div>
-                </div>
-              </div>
-              <div class="control block-cube block-input">
-                <input id="lpassword" name="password" type="password" placeholder="Password"/><div class="bg-top">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg-right">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg">
-                  <div class="bg-inner"></div>
-                </div>
-              </div>
-              <button id="login-btn" type="button" onclick="onLogin()" class="btn block-cube block-cube-hover" >
-                <div class="bg-top">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg-right">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="bg">
-                  <div class="bg-inner"></div>
-                </div>
-                <div class="text">
-                  Log In
-                </div></button></form>
-    </div>
-    <div id="character-menu">
-        <div id="rosetta" class="highlight character-option">
-          <img src="images/characters/rosetta.png"/>
-        </div>
-        <div id="alfredo" class="character-option">
-          <img src="images/characters/alfredo.png"/>            
-        </div>
-        <div id="gina" class="character-option">
-          <img src="images/characters/gina.png"/>
-        </div>
-        <div id="billie" class="character-option character-option-billie">
-          <img src="images/characters/billie.png"/>
-        </div>
-        <div id="luna" class="character-option character-option-luna">
-          <img src="images/characters/luna.png"/>
-        </div>
     </div>
 
-    <audio id="menu-audio-player" autoplay loop>
-      <source src="sounds/menu-song.wav" type="audio/mpeg">
-      <script>
-        var menuAudioPlayer = document.getElementById("menu-audio-player");
-        menuAudioPlayer.volume = 0.2;
-      </script>
-      Your browser does not support the audio element.
-    </audio>
-    <audio id="game-audio-player" loop>
-      <source src="sounds/flipflop.wav" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <div id="pizza-background">
+    <div id="content">
+      <div id="signup">
+        <form class="form" autocomplete="off">
+          <div class="control block-cube block-input">
+            <input id="susername" name="username" type="text" placeholder="Username" /><div class="upper-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="right-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="bg">
+              <div class="inner-background"></div>
+            </div>
+          </div>
+          <div class="control block-cube block-input">
+            <input id="password" name="password" type="password" placeholder="Password"/><div class="upper-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="right-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="bg">
+              <div class="inner-background"></div>
+            </div>
+          </div>
+          <div class="control block-cube block-input">
+            <input id="repassword" name="repassword" type="password" placeholder="Verify Password"/><div class="upper-background">
+              <div class="inner-background"></div>
+            </div>
+              <div class="right-background">
+                <div class="inner-background"></div>
+              </div>
+              <div class="bg">
+                <div class="inner-background"></div>
+              </div>
+            </div>
+            <div class="control block-cube block-input">
+              <input id="firstName" name="firstName" type="text" placeholder="First Name"/><div class="upper-background">
+                <div class="inner-background"></div>
+              </div>
+              <div class="right-background">
+                <div class="inner-background"></div>
+              </div>
+              <div class="bg">
+                <div class="inner-background"></div>
+              </div>
+            </div>
+            <div class="control block-cube block-input">
+              <input id="lastName" name="lastName" type="text" placeholder="Last Name"/><div class="upper-background">
+                <div class="inner-background"></div>
+              </div>
+              <div class="right-background">
+                <div class="inner-background"></div>
+              </div>
+              <div class="bg">
+                <div class="inner-background"></div>
+              </div>
+            </div>
+            <div class="control block-cube block-input">
+              <input id="email" name="email" type="text" placeholder="Email"/><div class="upper-background">
+                <div class="inner-background"></div>
+              </div>
+              <div class="right-background">
+                <div class="inner-background"></div>
+              </div>
+              <div class="bg">
+                <div class="inner-background"></div>
+              </div>
+            </div>
+          <form class= "container">
+            <label >Birthday:</label>
+            <select id="year" name= "yyyy" onchange="change_year(this)">
+            </select>
+            <select  id="month" name= "mm" onchange="change_month(this)">
+            </select>
+            <select id="day" name= "dd" >
+            </select>
+          </form>
+          <button id="signup-btn" type="submit" class="sign up btn block-cube block-cube-hover">
+            <div class="upper-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="right-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="bg">
+              <div class="inner-background"></div>
+            </div>
+            <div class="text">
+              Sign Up
+            </div>
+          </button>
+        </form>             
+      </div>
+
+      <div id="login">
+        <form class="form" autocomplete="off">
+          <div class="control block-cube block-input">
+            <input id="username" name="username" type="text" placeholder="Username" /><div class="upper-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="right-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="bg">
+              <div class="inner-background"></div>
+            </div>
+          </div>
+          <div class="control block-cube block-input">
+            <input id="lpassword" name="password" type="password" placeholder="Password"/><div class="upper-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="right-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="bg">
+              <div class="inner-background"></div>
+            </div>
+          </div>
+          <button id="login-btn" type="button" onclick="onLogin()" class="btn block-cube block-cube-hover" >
+            <div class="upper-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="right-background">
+              <div class="inner-background"></div>
+            </div>
+            <div class="bg">
+              <div class="inner-background"></div>
+            </div>
+            <div class="text">
+              Log In
+            </div>
+          </button>
+        </form>
+      </div>
+
+      <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+          <div class="modal-text">
+            <h1 id="about-title">About "Pizza Invaders"</h1>
+            <p>
+              While Building this game we were having trouble (COMPLETE THE PROBLEMS WE HAD),
+              We also implemented, using HTML5, jquery, JS and CSS, the option to move the character diagonal.
+              we added sounds to everything, including bacgkround music and win or lose game sounds.
+              All the characters, enemis, logo, backgrounds, shootings and icon is desigend by us using "Midjourney" v5
+            </p>
+            <h5>Authors: Shaked Ben-Aharon 209488154 & Omer Cohen 20611991</h5>
+          </div>
+        </div>
+      </div>
+      <div id="modalOverlay"></div>
+
+      <div id="character-menu">
+          <div id="rosetta" class="highlight character-option">
+            <img src="images/characters/rosetta.png"/>
+          </div>
+          <div id="alfredo" class="character-option">
+            <img src="images/characters/alfredo.png"/>            
+          </div>
+          <div id="gina" class="character-option">
+            <img src="images/characters/gina.png"/>
+          </div>
+          <div id="billie" class="character-option character-option-billie">
+            <img src="images/characters/billie.png"/>
+          </div>
+          <div id="luna" class="character-option character-option-luna">
+            <img src="images/characters/luna.png"/>
+          </div>
+      </div>
+
+      <audio id="menu-audio-player" autoplay loop>
+        <source src="sounds/menu-song.wav" type="audio/mpeg">
+        <script>
+          var menuAudioPlayer = document.getElementById("menu-audio-player");
+          menuAudioPlayer.volume = 0.2;
+        </script>
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="game-audio-player" loop>
+        <source src="sounds/flipflop.wav" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <canvas id="gameCanvas"></canvas>
+      <!-- <div id="info">
+        <p>Move with arrow keys or swipe, fire with the space bar or touch. The invaders get faster and drop
+          more invaderBullets as you complete each level!</p>
+          <p><a id="muteLink" href="#" onclick="toggleMute()">mute</a></p>
+        </div> -->
       <img src="images/background.png" id="playing-background">
     </div>
-    <!-- <div id="gamecontainer"> -->
-    <canvas id="gameCanvas">
-    </canvas>
-    <!-- </div> -->
-    <!-- <div id="info">
-      <p>Move with arrow keys or swipe, fire with the space bar or touch. The invaders get faster and drop
-        more invaderBullets as you complete each level!</p>
-        <p><a id="muteLink" href="#" onclick="toggleMute()">mute</a></p>
-      </div> -->
+    <div id="pizza-background"></div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/Sounds.js"></script>
@@ -271,6 +274,8 @@
 
       //  Start the game.
       game.start();
+
+      window.addEventListener('resize', () => pizzaBackground.resizePizzaBackground());
 
       //  Listen for keyboard events.
       window.addEventListener("keydown", function keydown(e) {

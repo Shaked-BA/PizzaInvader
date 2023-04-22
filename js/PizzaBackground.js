@@ -11,7 +11,8 @@ function PizzaBackground() {
 	this.height = 0;
 	this.minVelocity = 15;
 	this.maxVelocity = 30;
-	this.pizzas = 100;
+	this.pizzaAmount = 100;
+	this.pizzas = [];
 	this.intervalId = 0;
 }
 
@@ -36,9 +37,9 @@ PizzaBackground.prototype.start = function() {
 
 	//	Create the pizzas.
 	var pizzas = [];
-	for(var i=0; i<this.pizzas; i++) {
-		pizzas[i] = new Pizza(Math.random()*this.width, Math.random()*this.height, Math.random()*50+1,
-		 (Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity);
+	for(var i=0; i<this.pizzaAmount; i++) {
+		pizzas[i] = new Pizza(Math.random()*this.width, Math.random()*this.height,
+		 Math.random()*(0.04*this.width)+1, (Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity);
 	}
 	this.pizzas = pizzas;
 
@@ -115,4 +116,22 @@ function Pizza(x, y, size, velocity) {
 	this.y = y; 
 	this.size = size;
 	this.velocity = velocity;
+}
+
+PizzaBackground.prototype.resizePizzaBackground = function() {
+	this.width = window.innerWidth;
+	this.height = window.innerHeight;
+
+	this.canvas.width = this.width;
+	this.canvas.height = this.height;
+
+	clearCanvas();
+	this.start();
+};
+
+function clearCanvas() {
+	var ctx = this.canvas.getContext("2d");
+	ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+	console.log('cleared');
+	clearInterval(this.intervalId);
 }

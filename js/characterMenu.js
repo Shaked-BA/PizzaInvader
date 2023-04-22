@@ -23,5 +23,7 @@ var onCharacterClick = function(event) {
     // setVisibility('gameCanvas', 'block');
     pizzaBackground.onCharacterSelect();
     setVisibility('character-menu', 'none');
-    setVisibility('playing-background', 'inline-block')
+    setVisibility('pizza-background', 'none');
+    setVisibility('playing-background', 'inline-block');
+    setVisibility('gameCanvas', 'block');
 };
