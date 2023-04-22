@@ -20,19 +20,19 @@
         <h1>PAZZA!</h1>
       </header>
 
-      <div id="Menu">
-        <ul class="Menu-list" data-offset="10">
-          <li class="Menu-list-item" data-offset="20" onclick="setVisibility('Menu', 'none');setVisibility('header', 'none');setVisibility('signup', 'block');">
+      <div id="menu">
+        <ul class="menu" data-offset="10">
+          <li id="signup-menu-option" class="menu-item" data-offset="20">
             Sign up
             <span class="Mask"><span>Sign up</span></span>
             <span class="Mask"><span>Sign up</span></span>
           </li>
-          <li class="Menu-list-item" data-offset="16" onclick="setVisibility('Menu', 'none');setVisibility('header', 'none');setVisibility('login', 'block');">
+          <li id="login-menu-option" class="menu-item" data-offset="16">
             Login
             <span class="Mask"><span>Login</span></span>
             <span class="Mask"><span>Login</span></span>
           </li>
-          <li class="Menu-list-item" data-offset="12" onclick="showModal()">
+          <li id="about-menu-option" class="menu-item" data-offset="12">
             About
             <span class="Mask"><span>About</span></span>
             <span class="Mask"><span>About</span></span>
@@ -44,69 +44,69 @@
     <div id="content">
       <div id="signup">
         <form class="form" autocomplete="off">
-          <div class="control block-cube block-input">
+          <div class="control box box-input">
             <input id="susername" name="username" type="text" placeholder="Username" /><div class="upper-background">
               <div class="inner-background"></div>
             </div>
             <div class="right-background">
               <div class="inner-background"></div>
             </div>
-            <div class="bg">
+            <div class="background">
               <div class="inner-background"></div>
             </div>
           </div>
-          <div class="control block-cube block-input">
+          <div class="control box box-input">
             <input id="password" name="password" type="password" placeholder="Password"/><div class="upper-background">
               <div class="inner-background"></div>
             </div>
             <div class="right-background">
               <div class="inner-background"></div>
             </div>
-            <div class="bg">
+            <div class="background">
               <div class="inner-background"></div>
             </div>
           </div>
-          <div class="control block-cube block-input">
+          <div class="control box box-input">
             <input id="repassword" name="repassword" type="password" placeholder="Verify Password"/><div class="upper-background">
               <div class="inner-background"></div>
             </div>
               <div class="right-background">
                 <div class="inner-background"></div>
               </div>
-              <div class="bg">
+              <div class="background">
                 <div class="inner-background"></div>
               </div>
             </div>
-            <div class="control block-cube block-input">
+            <div class="control box box-input">
               <input id="firstName" name="firstName" type="text" placeholder="First Name"/><div class="upper-background">
                 <div class="inner-background"></div>
               </div>
               <div class="right-background">
                 <div class="inner-background"></div>
               </div>
-              <div class="bg">
+              <div class="background">
                 <div class="inner-background"></div>
               </div>
             </div>
-            <div class="control block-cube block-input">
+            <div class="control box box-input">
               <input id="lastName" name="lastName" type="text" placeholder="Last Name"/><div class="upper-background">
                 <div class="inner-background"></div>
               </div>
               <div class="right-background">
                 <div class="inner-background"></div>
               </div>
-              <div class="bg">
+              <div class="background">
                 <div class="inner-background"></div>
               </div>
             </div>
-            <div class="control block-cube block-input">
+            <div class="control box box-input">
               <input id="email" name="email" type="text" placeholder="Email"/><div class="upper-background">
                 <div class="inner-background"></div>
               </div>
               <div class="right-background">
                 <div class="inner-background"></div>
               </div>
-              <div class="bg">
+              <div class="background">
                 <div class="inner-background"></div>
               </div>
             </div>
@@ -119,14 +119,14 @@
             <select id="day" name= "dd" >
             </select>
           </form>
-          <button id="signup-btn" type="submit" class="sign up btn block-cube block-cube-hover">
+          <button id="signup-btn" type="submit" class="sign-up-button box box-hover">
             <div class="upper-background">
               <div class="inner-background"></div>
             </div>
             <div class="right-background">
               <div class="inner-background"></div>
             </div>
-            <div class="bg">
+            <div class="background">
               <div class="inner-background"></div>
             </div>
             <div class="text">
@@ -138,36 +138,36 @@
 
       <div id="login">
         <form class="form" autocomplete="off">
-          <div class="control block-cube block-input">
+          <div class="control box box-input">
             <input id="username" name="username" type="text" placeholder="Username" /><div class="upper-background">
               <div class="inner-background"></div>
             </div>
             <div class="right-background">
               <div class="inner-background"></div>
             </div>
-            <div class="bg">
+            <div class="background">
               <div class="inner-background"></div>
             </div>
           </div>
-          <div class="control block-cube block-input">
+          <div class="control box box-input">
             <input id="lpassword" name="password" type="password" placeholder="Password"/><div class="upper-background">
               <div class="inner-background"></div>
             </div>
             <div class="right-background">
               <div class="inner-background"></div>
             </div>
-            <div class="bg">
+            <div class="background">
               <div class="inner-background"></div>
             </div>
           </div>
-          <button id="login-btn" type="button" onclick="onLogin()" class="btn block-cube block-cube-hover" >
+          <button id="login-btn" type="button" class="btn box box-hover" >
             <div class="upper-background">
               <div class="inner-background"></div>
             </div>
             <div class="right-background">
               <div class="inner-background"></div>
             </div>
-            <div class="bg">
+            <div class="background">
               <div class="inner-background"></div>
             </div>
             <div class="text">
@@ -177,22 +177,21 @@
         </form>
       </div>
 
-      <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-content">
-          <div class="modal-text">
-            <h1 id="about-title">About "Pizza Invaders"</h1>
-            <p>
-              While Building this game we were having trouble (COMPLETE THE PROBLEMS WE HAD),
-              We also implemented, using HTML5, jquery, JS and CSS, the option to move the character diagonal.
-              we added sounds to everything, including bacgkround music and win or lose game sounds.
-              All the characters, enemis, logo, backgrounds, shootings and icon is desigend by us using "Midjourney" v5
-            </p>
-            <h5>Authors: Shaked Ben-Aharon 209488154 & Omer Cohen 20611991</h5>
-          </div>
+      <div id="about">
+        <button id="close-about-button" class="close">X</button>
+        <div class="about-content">
+          <h1 id="about-title">About "Pizza Invaders"</h1>
+          <!-- //TODO: add problems -->
+          <p>
+            While Building this game we were having trouble (COMPLETE THE PROBLEMS WE HAD),
+            We also implemented, using HTML5, jquery, JS and CSS, the option to move the character diagonal.
+            we added sounds to everything, including bacgkround music and win or lose game sounds.
+            All the characters, enemis, logo, backgrounds, shootings and icon is desigend by us using "Midjourney" v5
+          </p>
+          <h5>Authors: Shaked Ben-Aharon 209488154 & Omer Cohen 20611991</h5>
         </div>
       </div>
-      <div id="modalOverlay"></div>
+      <div id="overlay"></div>
 
       <div id="character-menu">
           <div id="rosetta" class="highlight character-option">
@@ -226,11 +225,6 @@
       </audio>
 
       <canvas id="gameCanvas"></canvas>
-      <!-- <div id="info">
-        <p>Move with arrow keys or swipe, fire with the space bar or touch. The invaders get faster and drop
-          more invaderBullets as you complete each level!</p>
-          <p><a id="muteLink" href="#" onclick="toggleMute()">mute</a></p>
-        </div> -->
       <img src="images/background.png" id="playing-background">
     </div>
     <div id="pizza-background"></div>
@@ -248,65 +242,47 @@
   <script src="js/Game.js"></script>
   <script src="js/Login.js"></script>
   <script src="js/About.js"></script>
+  <script src="js/Menu.js"></script>
   <script src="js/CharacterMenu.js"></script>
   <script>
-      const setVisibility = (divId, display) => {
+      function setVisibility(divId, display) {
           const element = document.getElementById(divId);
           element.style.display = display;
       }
 
-      //  Create the pizzaBackground.
       var container = document.getElementById('pizza-background');
       var pizzaBackground = new PizzaBackground();
       pizzaBackground.initialise(container);
       pizzaBackground.start();
-      
-      //  Setup the canvas.
+
       var canvas = document.getElementById("gameCanvas");
       canvas.width = 0.7 * window.innerWidth;
       canvas.height = 0.85 * window.innerHeight;
       
-      //  Create the game.
       var game = new Game();
-
-      //  Initialise it with the game canvas.
       game.initialise(canvas);
-
-      //  Start the game.
       game.start();
 
       window.addEventListener('resize', () => pizzaBackground.resizePizzaBackground());
-
-      //  Listen for keyboard events.
       window.addEventListener("keydown", function keydown(e) {
           var keycode = e.which || window.event.keycode;
-          //  Supress further processing of left/right/space (37/39/32)
           if(keycode == 37 || keycode == 39 || keycode == 32) {
               e.preventDefault();
           }
           game.keyDown(keycode);
-
       });
       window.addEventListener("keyup", function keydown(e) {
           var keycode = e.which || window.event.keycode;
           game.keyUp(keycode);
       });
-
       window.addEventListener("touchstart", function (e) {
           game.touchstart(e);
       }, false);
-
       window.addEventListener('touchend', function(e){
           game.touchend(e);
       }, false);
-
       window.addEventListener('touchmove', function(e){
           game.touchmove(e);
       }, false);
-
-      function toggleMute() {
-          game.mute();
-          document.getElementById("muteLink").innerText = game.sounds.mute ? "unmute" : "mute";
-      }
   </script>
 </html>

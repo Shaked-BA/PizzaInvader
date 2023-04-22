@@ -2,7 +2,7 @@
   padding: 115px;
 }
 
-SELECT {
+select {
   padding: 5px;
 }
 
@@ -15,7 +15,7 @@ input.date {
     width:min-content;
 }
 
-button.sign.up {
-    width: 280px; /* adjust the value as needed */
+.sign-up-button {
+    width: 280px;
     height: 42px;
 }

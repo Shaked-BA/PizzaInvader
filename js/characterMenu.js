@@ -1,4 +1,3 @@
-// const characterSelect = document.getElementById('character-menu');
 var characters = document.querySelectorAll('.character-option')
 
 characters.forEach(function (element) {
@@ -13,14 +12,12 @@ var onCharacterMouseEnter = function(element) {
 };
 
 var onCharacterClick = function(event) {
-    //Player sizes acording to id
     var character = game.characters[event.currentTarget.id];
     game.characterWidth = character.characterWidth;
     game.characterHeight = character.characterHeight;
     game.selectedCharacterImage = character.image;
 
     game.moveToState(new LevelIntroState(game.level));
-    // setVisibility('gameCanvas', 'block');
     pizzaBackground.onCharacterSelect();
     setVisibility('character-menu', 'none');
     setVisibility('pizza-background', 'none');
