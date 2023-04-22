@@ -1,9 +1,3 @@
-#login{
-    position: fixed;
-    left: 40vw;
-    top: 20vh;
-}
-
 *, ::after, ::before {
     box-sizing: border-box;
 }
@@ -57,7 +51,7 @@ h1 {
 .block-cube {
     position: relative;
 }
-.block-cube .bg-top {
+.block-cube .upper-background {
     position: absolute;
     height: 10px;
     background: #7c3400a2;
@@ -68,7 +62,7 @@ h1 {
     transform: skew(-45deg, 0);
     margin: 0;
 }
-.block-cube .bg-top .bg-inner {
+.block-cube .upper-background .inner-background {
     bottom: 0;
     opacity: 0.45;
 }
@@ -81,7 +75,7 @@ h1 {
     background: #fb6c06;
     background: linear-gradient(90deg, rgb(255, 116, 2) 0%, rgb(199, 82, 31) 37%, rgba(255, 102, 0, 0.744) 94%);
 }
-.block-cube .bg-right {
+.block-cube .right-background {
     position: absolute;
     background: rgb(255, 115, 0);
     background: rgb(255, 115, 0);
@@ -92,15 +86,15 @@ h1 {
     left: 100%;
     transform: skew(0, -45deg);
 }
-.block-cube .bg-right .bg-inner {
+.block-cube .right-background .inner-background {
     left: 0;
     opacity: 0.45;
 }
-.block-cube .bg .bg-inner {
+.block-cube .bg .inner-background {
     transition: all 0.2s ease-in-out;
     opacity: 0.45;
 }
-.block-cube .bg-inner {
+.block-cube .inner-background {
     background: #2a2828a8;
     position: absolute;
     left: 2px;
@@ -117,20 +111,20 @@ h1 {
     position: relative;
     z-index: 2;
 }
-.block-cube.block-input input:focus ~ .bg-right .bg-inner, .block-cube.block-input input:focus ~ .bg-top .bg-inner, .block-cube.block-input input:focus ~ .bg-inner .bg-inner {
+.block-cube.block-input input:focus ~ .right-background .inner-background, .block-cube.block-input input:focus ~ .upper-background .inner-background, .block-cube.block-input input:focus ~ .inner-background .inner-background {
     top: 100%;
     background: rgba(33, 31, 31, 0.699);
 }
-.block-cube.block-input .bg-top, .block-cube.block-input .bg-right, .block-cube.block-input .bg {
+.block-cube.block-input .upper-background, .block-cube.block-input .right-background, .block-cube.block-input .bg {
     background: rgba(44, 42, 42, 0.628);
     transition: background 0.2s ease-in-out;
 }
-.block-cube.block-input .bg-right .bg-inner, .block-cube.block-input .bg-top .bg-inner {
+.block-cube.block-input .right-background .inner-background, .block-cube.block-input .upper-background .inner-background {
     transition: all 0.2s ease-in-out;
 }
-.block-cube.block-input:focus .bg-top, .block-cube.block-input:hover .bg-top, .block-cube.block-input:focus .bg-right, .block-cube.block-input:hover .bg-right, .block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg {
+.block-cube.block-input:focus .upper-background, .block-cube.block-input:hover .upper-background, .block-cube.block-input:focus .right-background, .block-cube.block-input:hover .right-background, .block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg {
     background: rgba(52, 50, 50, 0.639);
 }
-.block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {
+.block-cube.block-cube-hover:focus .bg .inner-background, .block-cube.block-cube-hover:hover .bg .inner-background {
     top: 100%;
 }

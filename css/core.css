@@ -34,6 +34,36 @@ body, html {
   overflow: hidden;
 }
 
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex-column {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#playing-background {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  z-index: -5;
+  position: fixed;
+  top: 0;
+  left: 0; 
+}
+
 #pizza-background {
   width:100vw;
   height:100vh;
@@ -43,21 +73,9 @@ body, html {
   top: 0px;
 }
 
-#gamecontainer {
-  /* width: 800px; */
-  margin-left: auto;
-  margin-right: auto;
-}
 #gameCanvas { 
-  /* display: none; */
-  /* width: 70vw;
-  height: 85vh; */
-  /* position: fixed;
-  left: 15vw;
-  right: 15vw;
-  top: 7.5vh;
-  bottom: 7.5vh; */
-  z-index: -1;
+  display: none;
+  z-index: 2;
 }
 
 #info {
@@ -72,11 +90,4 @@ body, html {
 
 #signup {
   display: none;
-}
-
-#playing-background {
-  width: 100vw;
-  height: 100vh;
-  display: none;
-  z-index: -5;
 }
